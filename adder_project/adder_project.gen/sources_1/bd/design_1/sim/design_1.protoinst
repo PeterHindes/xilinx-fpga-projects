@@ -1,0 +1,105 @@
+{
+	"version": "1.0",
+	"modules": {
+		"design_1": {
+			"proto_instances": {
+				"/axi_gpio_0/S_AXI": {
+					"interface": "xilinx.com:interface:aximm:1.0",
+					"ports": {
+						"ACLK": { "actual": "s_axi_aclk"},
+						"ARADDR": { "actual": "s_axi_araddr[8:0]"},
+						"ARESETN": { "actual": "s_axi_aresetn"},
+						"ARREADY": { "actual": "s_axi_arready"},
+						"ARVALID": { "actual": "s_axi_arvalid"},
+						"AWADDR": { "actual": "s_axi_awaddr[8:0]"},
+						"AWREADY": { "actual": "s_axi_awready"},
+						"AWVALID": { "actual": "s_axi_awvalid"},
+						"BREADY": { "actual": "s_axi_bready"},
+						"BRESP": { "actual": "s_axi_bresp[1:0]"},
+						"BVALID": { "actual": "s_axi_bvalid"},
+						"RDATA": { "actual": "s_axi_rdata[31:0]"},
+						"RREADY": { "actual": "s_axi_rready"},
+						"RRESP": { "actual": "s_axi_rresp[1:0]"},
+						"RVALID": { "actual": "s_axi_rvalid"},
+						"WDATA": { "actual": "s_axi_wdata[31:0]"},
+						"WREADY": { "actual": "s_axi_wready"},
+						"WSTRB": { "actual": "s_axi_wstrb[3:0]"},
+						"WVALID": { "actual": "s_axi_wvalid"}
+					}
+				},
+				"/processing_system7_0/M_AXI_GP0": {
+					"interface": "xilinx.com:interface:aximm:1.0",
+					"ports": {
+						"ACLK": { "actual": "M_AXI_GP0_ACLK"},
+						"ARADDR": { "actual": "M_AXI_GP0_ARADDR[31:0]"},
+						"ARBURST": { "actual": "M_AXI_GP0_ARBURST[1:0]"},
+						"ARCACHE": { "actual": "M_AXI_GP0_ARCACHE[3:0]"},
+						"ARID": { "actual": "M_AXI_GP0_ARID[11:0]"},
+						"ARLEN": { "actual": "M_AXI_GP0_ARLEN[3:0]"},
+						"ARLOCK": { "actual": "M_AXI_GP0_ARLOCK[1:0]"},
+						"ARPROT": { "actual": "M_AXI_GP0_ARPROT[2:0]"},
+						"ARQOS": { "actual": "M_AXI_GP0_ARQOS[3:0]"},
+						"ARREADY": { "actual": "M_AXI_GP0_ARREADY"},
+						"ARSIZE": { "actual": "M_AXI_GP0_ARSIZE[2:0]"},
+						"ARVALID": { "actual": "M_AXI_GP0_ARVALID"},
+						"AWADDR": { "actual": "M_AXI_GP0_AWADDR[31:0]"},
+						"AWBURST": { "actual": "M_AXI_GP0_AWBURST[1:0]"},
+						"AWCACHE": { "actual": "M_AXI_GP0_AWCACHE[3:0]"},
+						"AWID": { "actual": "M_AXI_GP0_AWID[11:0]"},
+						"AWLEN": { "actual": "M_AXI_GP0_AWLEN[3:0]"},
+						"AWLOCK": { "actual": "M_AXI_GP0_AWLOCK[1:0]"},
+						"AWPROT": { "actual": "M_AXI_GP0_AWPROT[2:0]"},
+						"AWQOS": { "actual": "M_AXI_GP0_AWQOS[3:0]"},
+						"AWREADY": { "actual": "M_AXI_GP0_AWREADY"},
+						"AWSIZE": { "actual": "M_AXI_GP0_AWSIZE[2:0]"},
+						"AWVALID": { "actual": "M_AXI_GP0_AWVALID"},
+						"BID": { "actual": "M_AXI_GP0_BID[11:0]"},
+						"BREADY": { "actual": "M_AXI_GP0_BREADY"},
+						"BRESP": { "actual": "M_AXI_GP0_BRESP[1:0]"},
+						"BVALID": { "actual": "M_AXI_GP0_BVALID"},
+						"RDATA": { "actual": "M_AXI_GP0_RDATA[31:0]"},
+						"RID": { "actual": "M_AXI_GP0_RID[11:0]"},
+						"RLAST": { "actual": "M_AXI_GP0_RLAST"},
+						"RREADY": { "actual": "M_AXI_GP0_RREADY"},
+						"RRESP": { "actual": "M_AXI_GP0_RRESP[1:0]"},
+						"RVALID": { "actual": "M_AXI_GP0_RVALID"},
+						"WDATA": { "actual": "M_AXI_GP0_WDATA[31:0]"},
+						"WID": { "actual": "M_AXI_GP0_WID[11:0]"},
+						"WLAST": { "actual": "M_AXI_GP0_WLAST"},
+						"WREADY": { "actual": "M_AXI_GP0_WREADY"},
+						"WSTRB": { "actual": "M_AXI_GP0_WSTRB[3:0]"},
+						"WVALID": { "actual": "M_AXI_GP0_WVALID"}
+					}
+				},
+				"/ps7_0_axi_periph/M00_AXI": {
+					"interface": "xilinx.com:interface:aximm:1.0",
+					"ports": {
+						"ACLK": { "actual": "M00_ACLK"},
+						"ARESETN": { "actual": "ARESETN"}
+					}
+				},
+				"/ps7_0_axi_periph/S00_AXI": {
+					"interface": "xilinx.com:interface:aximm:1.0",
+					"ports": {
+						"ACLK": { "actual": "S00_ACLK"},
+						"ARESETN": { "actual": "ARESETN"}
+					}
+				},
+				"/ps7_0_axi_periph/s00_couplers/M_AXI": {
+					"interface": "xilinx.com:interface:aximm:1.0",
+					"ports": {
+						"ACLK": { "actual": "M_ACLK"},
+						"ARESETN": { "actual": "M_ARESETN"}
+					}
+				},
+				"/ps7_0_axi_periph/s00_couplers/S_AXI": {
+					"interface": "xilinx.com:interface:aximm:1.0",
+					"ports": {
+						"ACLK": { "actual": "S_ACLK"},
+						"ARESETN": { "actual": "S_ARESETN"}
+					}
+				}
+			}
+		}
+	}
+}

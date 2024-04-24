@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.2.1 (64-bit)
+# SW Build 4081461 on Thu Dec 14 12:24:51 MST 2023
+# IP Build 4080415 on Thu Dec 14 21:01:57 MST 2023
+# SharedData Build 4077621 on Mon Dec 11 00:23:44 MST 2023
+# Start of session at: Thu Mar 14 18:10:47 2024
+# Process ID: 26492
+# Current directory: C:/Users/user/Documents/FPGA/booleanboardtest/booleanboardtest.runs/synth_1
+# Command line: vivado.exe -log sw.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source sw.tcl
+# Log file: C:/Users/user/Documents/FPGA/booleanboardtest/booleanboardtest.runs/synth_1/sw.vds
+# Journal file: C:/Users/user/Documents/FPGA/booleanboardtest/booleanboardtest.runs/synth_1\vivado.jou
+# Running On: DESKTOP-8AMLJMH, OS: Windows, CPU Frequency: 2112 MHz, CPU Physical cores: 4, Host memory: 17052 MB
+#-----------------------------------------------------------
+source sw.tcl -notrace
