@@ -1,11 +1,11 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date         : Tue Jan 23 21:40:34 2024
-| Host         : DESKTOP-8AMLJMH running 64-bit major release  (build 9200)
+| Date         : Wed Apr 24 16:20:45 2024
+| Host         : DESKTOP-0813D9N running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file bitadder_control_sets_placed.rpt
 | Design       : bitadder
-| Device       : xc7z020
+| Device       : xc7k70t
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 Control Set Information

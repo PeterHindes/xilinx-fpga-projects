@@ -21,9 +21,9 @@
 
 
 module bitadder(
-    input wire [3:0] btns_4bits_tri_i,
-    output wire [3:0] ledleds_4bits_tri_o
+    output wire [15:0] led
     );
-    assign ledleds_4bits_tri_o[0] = btns_4bits_tri_i[0]^btns_4bits_tri_i[1]^btns_4bits_tri_i[2];
-    assign ledleds_4bits_tri_o[1] = (btns_4bits_tri_i[0]&btns_4bits_tri_i[1])|(btns_4bits_tri_i[0]&btns_4bits_tri_i[2])|(btns_4bits_tri_i[1]&btns_4bits_tri_i[2]);
+    //assign ledleds_4bits_tri_o[0] = btns_4bits_tri_i[0]^btns_4bits_tri_i[1]^btns_4bits_tri_i[2];
+    //assign ledleds_4bits_tri_o[1] = (btns_4bits_tri_i[0]&btns_4bits_tri_i[1])|(btns_4bits_tri_i[0]&btns_4bits_tri_i[2])|(btns_4bits_tri_i[1]&btns_4bits_tri_i[2]);
+    assign led[0] = 1;
 endmodule
