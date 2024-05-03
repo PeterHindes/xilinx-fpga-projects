@@ -41,4 +41,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log adctest.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source adctest.tcl
+EAStep vivado -log ledmaster.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source ledmaster.tcl

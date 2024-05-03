@@ -87,3 +87,15 @@ set_property -dict {PACKAGE_PIN C1 IOSTANDARD LVCMOS33} [get_ports {D1_seg[7]}]
 # Potentiometer
 set_property -dict {PACKAGE_PIN J10 IOSTANDARD LVCMOS33} [get_ports {XADC[0]}]
 set_property -dict {PACKAGE_PIN K9 IOSTANDARD LVCMOS33} [get_ports {XADC[1]}]
+
+# PmodA
+# Row 1
+set_property -dict {PACKAGE_PIN A14 IOSTANDARD LVCMOS33} [get_ports {PA[0]}]
+set_property -dict {PACKAGE_PIN B14 IOSTANDARD LVCMOS33} [get_ports {PA[1]}]
+set_property -dict {PACKAGE_PIN A13 IOSTANDARD LVCMOS33} [get_ports {PA[2]}]
+set_property -dict {PACKAGE_PIN B13 IOSTANDARD LVCMOS33} [get_ports {PA[3]}]
+# Row 2
+set_property -dict {PACKAGE_PIN C14 IOSTANDARD LVCMOS33} [get_ports {PA[4]}]
+set_property -dict {PACKAGE_PIN C13 IOSTANDARD LVCMOS33} [get_ports {PA[5]}]
+set_property -dict {PACKAGE_PIN D12 IOSTANDARD LVCMOS33} [get_ports {PA[6]}]
+set_property -dict {PACKAGE_PIN E12 IOSTANDARD LVCMOS33} [get_ports {PA[7]}]

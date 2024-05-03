@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1714045384" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/project1_demo.dcp">
-  <File Type="PA-TCL" Name="adctest.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="adctest_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="adctest_reports.tcl"/>
-  <File Type="RDS-RDS" Name="adctest.vds"/>
-  <File Type="RDS-UTIL" Name="adctest_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="adctest_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="adctest.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="adctest_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="adctest_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1714715130" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/ledmaster.dcp" LaunchWriteIncrSynthDcp="true">
+  <File Type="PA-TCL" Name="ledmaster.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="ledmaster_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="ledmaster_reports.tcl"/>
+  <File Type="RDS-RDS" Name="ledmaster.vds"/>
+  <File Type="RDS-UTIL" Name="ledmaster_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="ledmaster_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="ledmaster.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="ledmaster_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="ledmaster_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/ledmaster.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/adctest.v">
       <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -84,7 +92,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="adctest"/>
+      <Option Name="TopModule" Val="ledmaster"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
@@ -102,7 +110,7 @@
   </FileSet>
   <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
     <Filter Type="Utils"/>
-    <File Path="$PSRCDIR/utils_1/imports/synth_1/project1_demo.dcp">
+    <File Path="$PSRCDIR/utils_1/imports/synth_1/ledmaster.dcp">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -115,7 +123,11 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023"/>
-    <Step Id="synth_design"/>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
+    <Step Id="synth_design">
+      <Option Id="IncrementalMode">3</Option>
+    </Step>
   </Strategy>
 </GenRun>
