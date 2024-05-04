@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date         : Thu May  2 23:46:47 2024
+| Date         : Fri May  3 20:40:23 2024
 | Host         : DESKTOP-0813D9N running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -report_unconstrained -file ledmaster_timing_summary_routed.rpt -pb ledmaster_timing_summary_routed.pb -rpx ledmaster_timing_summary_routed.rpx -warn_on_violation
 | Design       : ledmaster
@@ -43,7 +43,7 @@ Timing Summary Report
 
 Rule       Severity          Description                  Violations  
 ---------  ----------------  ---------------------------  ----------  
-TIMING-17  Critical Warning  Non-clocked sequential cell  55          
+TIMING-17  Critical Warning  Non-clocked sequential cell  71          
 SYNTH-9    Warning           Small multiplier             3           
 
 Note: This report is based on the most recent report_methodology run and may not be up-to-date. Run report_methodology on the current design for the latest report.
@@ -54,10 +54,10 @@ check_timing report
 
 Table of Contents
 -----------------
-1. checking no_clock (55)
+1. checking no_clock (71)
 2. checking constant_clock (0)
 3. checking pulse_width_clock (0)
-4. checking unconstrained_internal_endpoints (140)
+4. checking unconstrained_internal_endpoints (172)
 5. checking no_input_delay (0)
 6. checking no_output_delay (3)
 7. checking multiple_clock (0)
@@ -67,11 +67,11 @@ Table of Contents
 11. checking partial_output_delay (0)
 12. checking latch_loops (0)
 
-1. checking no_clock (55)
+1. checking no_clock (71)
 -------------------------
  There are 16 register/latch pins with no clock driven by root clock pin: mclk (HIGH)
 
- There are 39 register/latch pins with no clock driven by root clock pin: o/clock_out1_reg/Q (HIGH)
+ There are 55 register/latch pins with no clock driven by root clock pin: o/clock_out1_reg/Q (HIGH)
 
 
 2. checking constant_clock (0)
@@ -84,9 +84,9 @@ Table of Contents
  There are 0 register/latch pins which need pulse_width check
 
 
-4. checking unconstrained_internal_endpoints (140)
+4. checking unconstrained_internal_endpoints (172)
 --------------------------------------------------
- There are 140 pins that are not constrained for maximum delay. (HIGH)
+ There are 172 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
@@ -145,7 +145,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-        inf        0.000                      0                  143          inf        0.000                      0                  143           NA           NA                      NA                    NA  
+        inf        0.000                      0                  175          inf        0.000                      0                  175           NA           NA                      NA                    NA  
 
 
 There are no user specified timing constraints.
@@ -214,314 +214,538 @@ Path Group:  (none)
 From Clock:  
   To Clock:  
 
-Max Delay           143 Endpoints
-Min Delay           143 Endpoints
+Max Delay           175 Endpoints
+Min Delay           175 Endpoints
 --------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
-  Source:                 ledNum_reg[1]/C
+  Source:                 slide_reg[4]/C
                             (rising edge-triggered cell FDRE)
   Destination:            PA[3]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        16.889ns  (logic 6.430ns (38.073%)  route 10.459ns (61.927%))
-  Logic Levels:           13  (CARRY4=3 FDRE=1 LUT1=1 LUT6=5 MUXF7=1 MUXF8=1 OBUF=1)
+  Data Path Delay:        31.573ns  (logic 11.564ns (36.627%)  route 20.009ns (63.373%))
+  Logic Levels:           30  (CARRY4=11 FDRE=1 LUT2=2 LUT3=3 LUT4=2 LUT5=2 LUT6=6 MUXF7=1 MUXF8=1 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X3Y80          FDRE                         0.000     0.000 r  ledNum_reg[1]/C
-    SLICE_X3Y80          FDRE (Prop_fdre_C_Q)         0.456     0.456 f  ledNum_reg[1]/Q
-                         net (fo=5, routed)           0.855     1.311    rbw/out[1]
-    SLICE_X4Y79          LUT1 (Prop_lut1_I0_O)        0.124     1.435 r  rbw/PA_OBUF[3]_inst_i_88/O
-                         net (fo=1, routed)           0.000     1.435    rbw/PA_OBUF[3]_inst_i_88_n_0
-    SLICE_X4Y79          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550     1.985 r  rbw/PA_OBUF[3]_inst_i_36/CO[3]
-                         net (fo=1, routed)           0.000     1.985    rbw/PA_OBUF[3]_inst_i_36_n_0
-    SLICE_X4Y80          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     2.099 r  rbw/PA_OBUF[3]_inst_i_203/CO[3]
-                         net (fo=1, routed)           0.000     2.099    rbw/PA_OBUF[3]_inst_i_203_n_0
-    SLICE_X4Y81          CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334     2.433 r  rbw/PA_OBUF[3]_inst_i_204/O[1]
-                         net (fo=144, routed)         3.937     6.370    rbw/PA_OBUF[3]_inst_i_204_n_6
-    SLICE_X10Y82         LUT6 (Prop_lut6_I5_O)        0.303     6.673 f  rbw/PA_OBUF[3]_inst_i_102/O
-                         net (fo=2, routed)           1.052     7.725    rbw/PA_OBUF[3]_inst_i_102_n_0
-    SLICE_X9Y82          LUT6 (Prop_lut6_I1_O)        0.124     7.849 f  rbw/PA_OBUF[3]_inst_i_41/O
-                         net (fo=2, routed)           0.643     8.492    rbw/PA_OBUF[3]_inst_i_41_n_0
-    SLICE_X9Y81          LUT6 (Prop_lut6_I5_O)        0.124     8.616 r  rbw/PA_OBUF[3]_inst_i_71/O
-                         net (fo=1, routed)           0.000     8.616    rbw/PA_OBUF[3]_inst_i_71_n_0
-    SLICE_X9Y81          MUXF7 (Prop_muxf7_I1_O)      0.217     8.833 r  rbw/PA_OBUF[3]_inst_i_28/O
-                         net (fo=1, routed)           0.000     8.833    rbw/PA_OBUF[3]_inst_i_28_n_0
-    SLICE_X9Y81          MUXF8 (Prop_muxf8_I1_O)      0.094     8.927 r  rbw/PA_OBUF[3]_inst_i_15/O
-                         net (fo=1, routed)           0.960     9.887    rbw/PA_OBUF[3]_inst_i_15_n_0
-    SLICE_X5Y80          LUT6 (Prop_lut6_I0_O)        0.316    10.203 r  rbw/PA_OBUF[3]_inst_i_5/O
-                         net (fo=1, routed)           0.638    10.841    rbw/PA_OBUF[3]_inst_i_5_n_0
-    SLICE_X5Y81          LUT6 (Prop_lut6_I4_O)        0.124    10.965 r  rbw/PA_OBUF[3]_inst_i_1/O
-                         net (fo=2, routed)           2.374    13.339    PA_OBUF[0]
-    B13                  OBUF (Prop_obuf_I_O)         3.550    16.889 r  PA_OBUF[3]_inst/O
-                         net (fo=0)                   0.000    16.889    PA[3]
+    SLICE_X2Y80          FDRE                         0.000     0.000 r  slide_reg[4]/C
+    SLICE_X2Y80          FDRE (Prop_fdre_C_Q)         0.518     0.518 r  slide_reg[4]/Q
+                         net (fo=15, routed)          1.479     1.997    rbw/slide_reg[4]
+    SLICE_X3Y77          LUT2 (Prop_lut2_I1_O)        0.124     2.121 r  rbw/PA_OBUF[3]_inst_i_437/O
+                         net (fo=1, routed)           0.000     2.121    rbw/PA_OBUF[3]_inst_i_437_n_0
+    SLICE_X3Y77          CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     2.653 r  rbw/PA_OBUF[3]_inst_i_418/CO[3]
+                         net (fo=1, routed)           0.000     2.653    rbw/PA_OBUF[3]_inst_i_418_n_0
+    SLICE_X3Y78          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.767 r  rbw/PA_OBUF[3]_inst_i_387/CO[3]
+                         net (fo=1, routed)           0.000     2.767    rbw/PA_OBUF[3]_inst_i_387_n_0
+    SLICE_X3Y79          CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     3.101 r  rbw/PA_OBUF[3]_inst_i_347/O[1]
+                         net (fo=3, routed)           1.258     4.358    rbw/PA_OBUF[3]_inst_i_347_n_6
+    SLICE_X1Y79          LUT3 (Prop_lut3_I1_O)        0.303     4.661 f  rbw/PA_OBUF[3]_inst_i_350/O
+                         net (fo=2, routed)           0.677     5.338    rbw/PA_OBUF[3]_inst_i_350_n_0
+    SLICE_X1Y79          LUT5 (Prop_lut5_I1_O)        0.124     5.462 r  rbw/PA_OBUF[3]_inst_i_308/O
+                         net (fo=2, routed)           0.805     6.267    rbw/PA_OBUF[3]_inst_i_308_n_0
+    SLICE_X0Y80          LUT6 (Prop_lut6_I0_O)        0.124     6.391 r  rbw/PA_OBUF[3]_inst_i_312/O
+                         net (fo=1, routed)           0.000     6.391    rbw/PA_OBUF[3]_inst_i_312_n_0
+    SLICE_X0Y80          CARRY4 (Prop_carry4_S[0]_O[3])
+                                                      0.606     6.997 r  rbw/PA_OBUF[3]_inst_i_296/O[3]
+                         net (fo=12, routed)          1.123     8.120    rbw/PA_OBUF[3]_inst_i_296_n_4
+    SLICE_X1Y83          LUT3 (Prop_lut3_I0_O)        0.306     8.426 r  rbw/PA_OBUF[3]_inst_i_358/O
+                         net (fo=2, routed)           1.004     9.430    rbw/PA_OBUF[3]_inst_i_358_n_0
+    SLICE_X3Y82          LUT4 (Prop_lut4_I3_O)        0.124     9.554 r  rbw/PA_OBUF[3]_inst_i_362/O
+                         net (fo=1, routed)           0.000     9.554    rbw/PA_OBUF[3]_inst_i_362_n_0
+    SLICE_X3Y82          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    10.104 r  rbw/PA_OBUF[3]_inst_i_321/CO[3]
+                         net (fo=1, routed)           0.000    10.104    rbw/PA_OBUF[3]_inst_i_321_n_0
+    SLICE_X3Y83          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222    10.326 r  rbw/PA_OBUF[3]_inst_i_298/O[0]
+                         net (fo=3, routed)           0.979    11.305    rbw/PA_OBUF[3]_inst_i_298_n_7
+    SLICE_X4Y81          LUT4 (Prop_lut4_I2_O)        0.299    11.604 r  rbw/PA_OBUF[3]_inst_i_370/O
+                         net (fo=1, routed)           0.000    11.604    rbw/PA_OBUF[3]_inst_i_370_n_0
+    SLICE_X4Y81          CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.398    12.002 r  rbw/PA_OBUF[3]_inst_i_329/CO[3]
+                         net (fo=1, routed)           0.000    12.002    rbw/PA_OBUF[3]_inst_i_329_n_0
+    SLICE_X4Y82          CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.157    12.159 f  rbw/PA_OBUF[3]_inst_i_299/CO[1]
+                         net (fo=3, routed)           0.801    12.960    rbw/PA_OBUF[3]_inst_i_299_n_2
+    SLICE_X1Y83          LUT3 (Prop_lut3_I0_O)        0.329    13.289 r  rbw/PA_OBUF[3]_inst_i_295/O
+                         net (fo=4, routed)           0.981    14.270    rbw/PA_OBUF[3]_inst_i_295_n_0
+    SLICE_X4Y83          LUT5 (Prop_lut5_I2_O)        0.124    14.394 r  rbw/PA_OBUF[3]_inst_i_209/O
+                         net (fo=1, routed)           0.000    14.394    rbw/PA_OBUF[3]_inst_i_209_n_0
+    SLICE_X4Y83          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.352    14.746 r  rbw/PA_OBUF[3]_inst_i_92/O[3]
+                         net (fo=3, routed)           0.897    15.643    rbw/PA_OBUF[3]_inst_i_92_n_4
+    SLICE_X5Y83          LUT2 (Prop_lut2_I1_O)        0.306    15.949 r  rbw/PA_OBUF[3]_inst_i_93/O
+                         net (fo=1, routed)           0.000    15.949    rbw/PA_OBUF[3]_inst_i_93_n_0
+    SLICE_X5Y83          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401    16.350 r  rbw/PA_OBUF[3]_inst_i_39/CO[3]
+                         net (fo=1, routed)           0.000    16.350    rbw/PA_OBUF[3]_inst_i_39_n_0
+    SLICE_X5Y84          CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334    16.684 r  rbw/PA_OBUF[3]_inst_i_202/O[1]
+                         net (fo=144, routed)         3.619    20.303    rbw/PA_OBUF[3]_inst_i_202_n_6
+    SLICE_X9Y80          LUT6 (Prop_lut6_I1_O)        0.303    20.606 r  rbw/PA_OBUF[3]_inst_i_163/O
+                         net (fo=2, routed)           0.664    21.270    rbw/PA_OBUF[3]_inst_i_163_n_0
+    SLICE_X8Y80          LUT6 (Prop_lut6_I3_O)        0.124    21.394 r  rbw/PA_OBUF[3]_inst_i_190/O
+                         net (fo=2, routed)           1.267    22.661    rbw/PA_OBUF[3]_inst_i_190_n_0
+    SLICE_X6Y82          LUT6 (Prop_lut6_I5_O)        0.124    22.785 r  rbw/PA_OBUF[3]_inst_i_74/O
+                         net (fo=1, routed)           0.000    22.785    rbw/color[15]
+    SLICE_X6Y82          MUXF7 (Prop_muxf7_I0_O)      0.241    23.026 r  rbw/PA_OBUF[3]_inst_i_30/O
+                         net (fo=1, routed)           0.000    23.026    rbw/PA_OBUF[3]_inst_i_30_n_0
+    SLICE_X6Y82          MUXF8 (Prop_muxf8_I0_O)      0.098    23.124 r  rbw/PA_OBUF[3]_inst_i_14/O
+                         net (fo=1, routed)           1.145    24.269    rbw/PA_OBUF[3]_inst_i_14_n_0
+    SLICE_X6Y81          LUT6 (Prop_lut6_I1_O)        0.319    24.588 r  rbw/PA_OBUF[3]_inst_i_5/O
+                         net (fo=1, routed)           0.956    25.545    rbw/PA_OBUF[3]_inst_i_5_n_0
+    SLICE_X6Y85          LUT6 (Prop_lut6_I5_O)        0.124    25.669 r  rbw/PA_OBUF[3]_inst_i_1/O
+                         net (fo=2, routed)           2.354    28.023    PA_OBUF[0]
+    B13                  OBUF (Prop_obuf_I_O)         3.550    31.573 r  PA_OBUF[3]_inst/O
+                         net (fo=0)                   0.000    31.573    PA[3]
     B13                                                               r  PA[3] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 ledNum_reg[1]/C
+  Source:                 slide_reg[4]/C
                             (rising edge-triggered cell FDRE)
   Destination:            PA[0]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        16.604ns  (logic 6.428ns (38.713%)  route 10.176ns (61.287%))
-  Logic Levels:           13  (CARRY4=3 FDRE=1 LUT1=1 LUT6=5 MUXF7=1 MUXF8=1 OBUF=1)
+  Data Path Delay:        31.288ns  (logic 11.562ns (36.953%)  route 19.726ns (63.047%))
+  Logic Levels:           30  (CARRY4=11 FDRE=1 LUT2=2 LUT3=3 LUT4=2 LUT5=2 LUT6=6 MUXF7=1 MUXF8=1 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X3Y80          FDRE                         0.000     0.000 r  ledNum_reg[1]/C
-    SLICE_X3Y80          FDRE (Prop_fdre_C_Q)         0.456     0.456 f  ledNum_reg[1]/Q
-                         net (fo=5, routed)           0.855     1.311    rbw/out[1]
-    SLICE_X4Y79          LUT1 (Prop_lut1_I0_O)        0.124     1.435 r  rbw/PA_OBUF[3]_inst_i_88/O
-                         net (fo=1, routed)           0.000     1.435    rbw/PA_OBUF[3]_inst_i_88_n_0
-    SLICE_X4Y79          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550     1.985 r  rbw/PA_OBUF[3]_inst_i_36/CO[3]
-                         net (fo=1, routed)           0.000     1.985    rbw/PA_OBUF[3]_inst_i_36_n_0
-    SLICE_X4Y80          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     2.099 r  rbw/PA_OBUF[3]_inst_i_203/CO[3]
-                         net (fo=1, routed)           0.000     2.099    rbw/PA_OBUF[3]_inst_i_203_n_0
-    SLICE_X4Y81          CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334     2.433 r  rbw/PA_OBUF[3]_inst_i_204/O[1]
-                         net (fo=144, routed)         3.937     6.370    rbw/PA_OBUF[3]_inst_i_204_n_6
-    SLICE_X10Y82         LUT6 (Prop_lut6_I5_O)        0.303     6.673 f  rbw/PA_OBUF[3]_inst_i_102/O
-                         net (fo=2, routed)           1.052     7.725    rbw/PA_OBUF[3]_inst_i_102_n_0
-    SLICE_X9Y82          LUT6 (Prop_lut6_I1_O)        0.124     7.849 f  rbw/PA_OBUF[3]_inst_i_41/O
-                         net (fo=2, routed)           0.643     8.492    rbw/PA_OBUF[3]_inst_i_41_n_0
-    SLICE_X9Y81          LUT6 (Prop_lut6_I5_O)        0.124     8.616 r  rbw/PA_OBUF[3]_inst_i_71/O
-                         net (fo=1, routed)           0.000     8.616    rbw/PA_OBUF[3]_inst_i_71_n_0
-    SLICE_X9Y81          MUXF7 (Prop_muxf7_I1_O)      0.217     8.833 r  rbw/PA_OBUF[3]_inst_i_28/O
-                         net (fo=1, routed)           0.000     8.833    rbw/PA_OBUF[3]_inst_i_28_n_0
-    SLICE_X9Y81          MUXF8 (Prop_muxf8_I1_O)      0.094     8.927 r  rbw/PA_OBUF[3]_inst_i_15/O
-                         net (fo=1, routed)           0.960     9.887    rbw/PA_OBUF[3]_inst_i_15_n_0
-    SLICE_X5Y80          LUT6 (Prop_lut6_I0_O)        0.316    10.203 r  rbw/PA_OBUF[3]_inst_i_5/O
-                         net (fo=1, routed)           0.638    10.841    rbw/PA_OBUF[3]_inst_i_5_n_0
-    SLICE_X5Y81          LUT6 (Prop_lut6_I4_O)        0.124    10.965 r  rbw/PA_OBUF[3]_inst_i_1/O
-                         net (fo=2, routed)           2.091    13.056    PA_OBUF[0]
-    A14                  OBUF (Prop_obuf_I_O)         3.548    16.604 r  PA_OBUF[0]_inst/O
-                         net (fo=0)                   0.000    16.604    PA[0]
+    SLICE_X2Y80          FDRE                         0.000     0.000 r  slide_reg[4]/C
+    SLICE_X2Y80          FDRE (Prop_fdre_C_Q)         0.518     0.518 r  slide_reg[4]/Q
+                         net (fo=15, routed)          1.479     1.997    rbw/slide_reg[4]
+    SLICE_X3Y77          LUT2 (Prop_lut2_I1_O)        0.124     2.121 r  rbw/PA_OBUF[3]_inst_i_437/O
+                         net (fo=1, routed)           0.000     2.121    rbw/PA_OBUF[3]_inst_i_437_n_0
+    SLICE_X3Y77          CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     2.653 r  rbw/PA_OBUF[3]_inst_i_418/CO[3]
+                         net (fo=1, routed)           0.000     2.653    rbw/PA_OBUF[3]_inst_i_418_n_0
+    SLICE_X3Y78          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.767 r  rbw/PA_OBUF[3]_inst_i_387/CO[3]
+                         net (fo=1, routed)           0.000     2.767    rbw/PA_OBUF[3]_inst_i_387_n_0
+    SLICE_X3Y79          CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     3.101 r  rbw/PA_OBUF[3]_inst_i_347/O[1]
+                         net (fo=3, routed)           1.258     4.358    rbw/PA_OBUF[3]_inst_i_347_n_6
+    SLICE_X1Y79          LUT3 (Prop_lut3_I1_O)        0.303     4.661 f  rbw/PA_OBUF[3]_inst_i_350/O
+                         net (fo=2, routed)           0.677     5.338    rbw/PA_OBUF[3]_inst_i_350_n_0
+    SLICE_X1Y79          LUT5 (Prop_lut5_I1_O)        0.124     5.462 r  rbw/PA_OBUF[3]_inst_i_308/O
+                         net (fo=2, routed)           0.805     6.267    rbw/PA_OBUF[3]_inst_i_308_n_0
+    SLICE_X0Y80          LUT6 (Prop_lut6_I0_O)        0.124     6.391 r  rbw/PA_OBUF[3]_inst_i_312/O
+                         net (fo=1, routed)           0.000     6.391    rbw/PA_OBUF[3]_inst_i_312_n_0
+    SLICE_X0Y80          CARRY4 (Prop_carry4_S[0]_O[3])
+                                                      0.606     6.997 r  rbw/PA_OBUF[3]_inst_i_296/O[3]
+                         net (fo=12, routed)          1.123     8.120    rbw/PA_OBUF[3]_inst_i_296_n_4
+    SLICE_X1Y83          LUT3 (Prop_lut3_I0_O)        0.306     8.426 r  rbw/PA_OBUF[3]_inst_i_358/O
+                         net (fo=2, routed)           1.004     9.430    rbw/PA_OBUF[3]_inst_i_358_n_0
+    SLICE_X3Y82          LUT4 (Prop_lut4_I3_O)        0.124     9.554 r  rbw/PA_OBUF[3]_inst_i_362/O
+                         net (fo=1, routed)           0.000     9.554    rbw/PA_OBUF[3]_inst_i_362_n_0
+    SLICE_X3Y82          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    10.104 r  rbw/PA_OBUF[3]_inst_i_321/CO[3]
+                         net (fo=1, routed)           0.000    10.104    rbw/PA_OBUF[3]_inst_i_321_n_0
+    SLICE_X3Y83          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222    10.326 r  rbw/PA_OBUF[3]_inst_i_298/O[0]
+                         net (fo=3, routed)           0.979    11.305    rbw/PA_OBUF[3]_inst_i_298_n_7
+    SLICE_X4Y81          LUT4 (Prop_lut4_I2_O)        0.299    11.604 r  rbw/PA_OBUF[3]_inst_i_370/O
+                         net (fo=1, routed)           0.000    11.604    rbw/PA_OBUF[3]_inst_i_370_n_0
+    SLICE_X4Y81          CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.398    12.002 r  rbw/PA_OBUF[3]_inst_i_329/CO[3]
+                         net (fo=1, routed)           0.000    12.002    rbw/PA_OBUF[3]_inst_i_329_n_0
+    SLICE_X4Y82          CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.157    12.159 f  rbw/PA_OBUF[3]_inst_i_299/CO[1]
+                         net (fo=3, routed)           0.801    12.960    rbw/PA_OBUF[3]_inst_i_299_n_2
+    SLICE_X1Y83          LUT3 (Prop_lut3_I0_O)        0.329    13.289 r  rbw/PA_OBUF[3]_inst_i_295/O
+                         net (fo=4, routed)           0.981    14.270    rbw/PA_OBUF[3]_inst_i_295_n_0
+    SLICE_X4Y83          LUT5 (Prop_lut5_I2_O)        0.124    14.394 r  rbw/PA_OBUF[3]_inst_i_209/O
+                         net (fo=1, routed)           0.000    14.394    rbw/PA_OBUF[3]_inst_i_209_n_0
+    SLICE_X4Y83          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.352    14.746 r  rbw/PA_OBUF[3]_inst_i_92/O[3]
+                         net (fo=3, routed)           0.897    15.643    rbw/PA_OBUF[3]_inst_i_92_n_4
+    SLICE_X5Y83          LUT2 (Prop_lut2_I1_O)        0.306    15.949 r  rbw/PA_OBUF[3]_inst_i_93/O
+                         net (fo=1, routed)           0.000    15.949    rbw/PA_OBUF[3]_inst_i_93_n_0
+    SLICE_X5Y83          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401    16.350 r  rbw/PA_OBUF[3]_inst_i_39/CO[3]
+                         net (fo=1, routed)           0.000    16.350    rbw/PA_OBUF[3]_inst_i_39_n_0
+    SLICE_X5Y84          CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334    16.684 r  rbw/PA_OBUF[3]_inst_i_202/O[1]
+                         net (fo=144, routed)         3.619    20.303    rbw/PA_OBUF[3]_inst_i_202_n_6
+    SLICE_X9Y80          LUT6 (Prop_lut6_I1_O)        0.303    20.606 r  rbw/PA_OBUF[3]_inst_i_163/O
+                         net (fo=2, routed)           0.664    21.270    rbw/PA_OBUF[3]_inst_i_163_n_0
+    SLICE_X8Y80          LUT6 (Prop_lut6_I3_O)        0.124    21.394 r  rbw/PA_OBUF[3]_inst_i_190/O
+                         net (fo=2, routed)           1.267    22.661    rbw/PA_OBUF[3]_inst_i_190_n_0
+    SLICE_X6Y82          LUT6 (Prop_lut6_I5_O)        0.124    22.785 r  rbw/PA_OBUF[3]_inst_i_74/O
+                         net (fo=1, routed)           0.000    22.785    rbw/color[15]
+    SLICE_X6Y82          MUXF7 (Prop_muxf7_I0_O)      0.241    23.026 r  rbw/PA_OBUF[3]_inst_i_30/O
+                         net (fo=1, routed)           0.000    23.026    rbw/PA_OBUF[3]_inst_i_30_n_0
+    SLICE_X6Y82          MUXF8 (Prop_muxf8_I0_O)      0.098    23.124 r  rbw/PA_OBUF[3]_inst_i_14/O
+                         net (fo=1, routed)           1.145    24.269    rbw/PA_OBUF[3]_inst_i_14_n_0
+    SLICE_X6Y81          LUT6 (Prop_lut6_I1_O)        0.319    24.588 r  rbw/PA_OBUF[3]_inst_i_5/O
+                         net (fo=1, routed)           0.956    25.545    rbw/PA_OBUF[3]_inst_i_5_n_0
+    SLICE_X6Y85          LUT6 (Prop_lut6_I5_O)        0.124    25.669 r  rbw/PA_OBUF[3]_inst_i_1/O
+                         net (fo=2, routed)           2.071    27.740    PA_OBUF[0]
+    A14                  OBUF (Prop_obuf_I_O)         3.548    31.288 r  PA_OBUF[0]_inst/O
+                         net (fo=0)                   0.000    31.288    PA[0]
     A14                                                               r  PA[0] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 index_reg[4]/C
+  Source:                 index_reg[0]/C
                             (rising edge-triggered cell FDRE)
   Destination:            PA[1]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        8.357ns  (logic 4.453ns (53.284%)  route 3.904ns (46.716%))
-  Logic Levels:           4  (FDRE=1 LUT2=1 LUT6=1 OBUF=1)
+  Data Path Delay:        7.682ns  (logic 4.490ns (58.446%)  route 3.192ns (41.554%))
+  Logic Levels:           4  (FDRE=1 LUT4=2 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X6Y80          FDRE                         0.000     0.000 r  index_reg[4]/C
-    SLICE_X6Y80          FDRE (Prop_fdre_C_Q)         0.478     0.478 f  index_reg[4]/Q
-                         net (fo=6, routed)           0.985     1.463    index_reg[4]
-    SLICE_X5Y81          LUT6 (Prop_lut6_I1_O)        0.301     1.764 r  PA_OBUF[1]_inst_i_2/O
-                         net (fo=1, routed)           0.670     2.434    PA_OBUF[1]_inst_i_2_n_0
-    SLICE_X5Y81          LUT2 (Prop_lut2_I0_O)        0.124     2.558 r  PA_OBUF[1]_inst_i_1/O
-                         net (fo=1, routed)           2.249     4.807    PA_OBUF[1]
-    B14                  OBUF (Prop_obuf_I_O)         3.550     8.357 r  PA_OBUF[1]_inst/O
-                         net (fo=0)                   0.000     8.357    PA[1]
+    SLICE_X5Y86          FDRE                         0.000     0.000 r  index_reg[0]/C
+    SLICE_X5Y86          FDRE (Prop_fdre_C_Q)         0.456     0.456 f  index_reg[0]/Q
+                         net (fo=21, routed)          0.865     1.321    index_reg[0]
+    SLICE_X5Y86          LUT4 (Prop_lut4_I0_O)        0.152     1.473 f  PA_OBUF[1]_inst_i_2/O
+                         net (fo=1, routed)           0.266     1.738    PA_OBUF[1]_inst_i_2_n_0
+    SLICE_X5Y86          LUT4 (Prop_lut4_I3_O)        0.332     2.070 r  PA_OBUF[1]_inst_i_1/O
+                         net (fo=1, routed)           2.062     4.132    PA_OBUF[1]
+    B14                  OBUF (Prop_obuf_I_O)         3.550     7.682 r  PA_OBUF[1]_inst/O
+                         net (fo=0)                   0.000     7.682    PA[1]
     B14                                                               r  PA[1] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 index_reg[1]/C
+  Source:                 ledNum_reg[1]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            ledNum_reg[12]/R
+  Destination:            slide_reg[0]/CE
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        6.248ns  (logic 1.269ns (20.311%)  route 4.979ns (79.689%))
-  Logic Levels:           6  (FDRE=1 LUT3=1 LUT5=3 LUT6=1)
+  Data Path Delay:        6.868ns  (logic 2.647ns (38.543%)  route 4.221ns (61.457%))
+  Logic Levels:           12  (CARRY4=8 FDRE=1 LUT4=2 LUT6=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X6Y80          FDRE                         0.000     0.000 r  index_reg[1]/C
-    SLICE_X6Y80          FDRE (Prop_fdre_C_Q)         0.478     0.478 r  index_reg[1]/Q
-                         net (fo=9, routed)           0.831     1.309    index_reg[1]
-    SLICE_X5Y80          LUT3 (Prop_lut3_I0_O)        0.295     1.604 r  index[6]_i_3/O
-                         net (fo=2, routed)           0.800     2.404    index[6]_i_3_n_0
-    SLICE_X5Y81          LUT5 (Prop_lut5_I4_O)        0.124     2.528 r  index[6]_i_1/O
-                         net (fo=45, routed)          1.562     4.090    sel
-    SLICE_X4Y84          LUT6 (Prop_lut6_I4_O)        0.124     4.214 r  ledNum[0]_i_16/O
-                         net (fo=1, routed)           0.669     4.883    ledNum[0]_i_16_n_0
-    SLICE_X4Y84          LUT5 (Prop_lut5_I4_O)        0.124     5.007 r  ledNum[0]_i_7/O
-                         net (fo=1, routed)           0.159     5.166    ledNum[0]_i_7_n_0
-    SLICE_X4Y84          LUT5 (Prop_lut5_I4_O)        0.124     5.290 r  ledNum[0]_i_1/O
-                         net (fo=32, routed)          0.958     6.248    clear
-    SLICE_X3Y83          FDRE                                         r  ledNum_reg[12]/R
+    SLICE_X2Y83          FDRE                         0.000     0.000 r  ledNum_reg[1]/C
+    SLICE_X2Y83          FDRE (Prop_fdre_C_Q)         0.518     0.518 r  ledNum_reg[1]/Q
+                         net (fo=5, routed)           0.666     1.184    ledNum_reg[1]
+    SLICE_X3Y84          CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.656     1.840 r  ledNum_reg[0]_i_7/CO[3]
+                         net (fo=1, routed)           0.000     1.840    ledNum_reg[0]_i_7_n_0
+    SLICE_X3Y85          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     1.954 r  ledNum_reg[0]_i_8/CO[3]
+                         net (fo=1, routed)           0.000     1.954    ledNum_reg[0]_i_8_n_0
+    SLICE_X3Y86          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.068 r  ledNum_reg[0]_i_13/CO[3]
+                         net (fo=1, routed)           0.000     2.068    ledNum_reg[0]_i_13_n_0
+    SLICE_X3Y87          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.182 r  ledNum_reg[0]_i_12/CO[3]
+                         net (fo=1, routed)           0.000     2.182    ledNum_reg[0]_i_12_n_0
+    SLICE_X3Y88          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.296 r  ledNum_reg[0]_i_11/CO[3]
+                         net (fo=1, routed)           0.000     2.296    ledNum_reg[0]_i_11_n_0
+    SLICE_X3Y89          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.410 r  ledNum_reg[0]_i_18/CO[3]
+                         net (fo=1, routed)           0.000     2.410    ledNum_reg[0]_i_18_n_0
+    SLICE_X3Y90          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.524 r  ledNum_reg[0]_i_17/CO[3]
+                         net (fo=1, routed)           0.000     2.524    ledNum_reg[0]_i_17_n_0
+    SLICE_X3Y91          CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     2.763 r  ledNum_reg[0]_i_14/O[2]
+                         net (fo=1, routed)           0.823     3.586    ledNum_reg[0]_i_14_n_5
+    SLICE_X4Y90          LUT4 (Prop_lut4_I3_O)        0.302     3.888 r  ledNum[0]_i_16/O
+                         net (fo=1, routed)           0.649     4.538    ledNum[0]_i_16_n_0
+    SLICE_X4Y88          LUT6 (Prop_lut6_I5_O)        0.124     4.662 f  ledNum[0]_i_5/O
+                         net (fo=1, routed)           0.642     5.303    ledNum[0]_i_5_n_0
+    SLICE_X4Y86          LUT4 (Prop_lut4_I3_O)        0.124     5.427 r  ledNum[0]_i_1/O
+                         net (fo=48, routed)          1.441     6.868    ledNum[0]_i_1_n_0
+    SLICE_X2Y79          FDRE                                         r  slide_reg[0]/CE
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 index_reg[1]/C
+  Source:                 ledNum_reg[1]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            ledNum_reg[13]/R
+  Destination:            slide_reg[1]/CE
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        6.248ns  (logic 1.269ns (20.311%)  route 4.979ns (79.689%))
-  Logic Levels:           6  (FDRE=1 LUT3=1 LUT5=3 LUT6=1)
+  Data Path Delay:        6.868ns  (logic 2.647ns (38.543%)  route 4.221ns (61.457%))
+  Logic Levels:           12  (CARRY4=8 FDRE=1 LUT4=2 LUT6=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X6Y80          FDRE                         0.000     0.000 r  index_reg[1]/C
-    SLICE_X6Y80          FDRE (Prop_fdre_C_Q)         0.478     0.478 r  index_reg[1]/Q
-                         net (fo=9, routed)           0.831     1.309    index_reg[1]
-    SLICE_X5Y80          LUT3 (Prop_lut3_I0_O)        0.295     1.604 r  index[6]_i_3/O
-                         net (fo=2, routed)           0.800     2.404    index[6]_i_3_n_0
-    SLICE_X5Y81          LUT5 (Prop_lut5_I4_O)        0.124     2.528 r  index[6]_i_1/O
-                         net (fo=45, routed)          1.562     4.090    sel
-    SLICE_X4Y84          LUT6 (Prop_lut6_I4_O)        0.124     4.214 r  ledNum[0]_i_16/O
-                         net (fo=1, routed)           0.669     4.883    ledNum[0]_i_16_n_0
-    SLICE_X4Y84          LUT5 (Prop_lut5_I4_O)        0.124     5.007 r  ledNum[0]_i_7/O
-                         net (fo=1, routed)           0.159     5.166    ledNum[0]_i_7_n_0
-    SLICE_X4Y84          LUT5 (Prop_lut5_I4_O)        0.124     5.290 r  ledNum[0]_i_1/O
-                         net (fo=32, routed)          0.958     6.248    clear
-    SLICE_X3Y83          FDRE                                         r  ledNum_reg[13]/R
+    SLICE_X2Y83          FDRE                         0.000     0.000 r  ledNum_reg[1]/C
+    SLICE_X2Y83          FDRE (Prop_fdre_C_Q)         0.518     0.518 r  ledNum_reg[1]/Q
+                         net (fo=5, routed)           0.666     1.184    ledNum_reg[1]
+    SLICE_X3Y84          CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.656     1.840 r  ledNum_reg[0]_i_7/CO[3]
+                         net (fo=1, routed)           0.000     1.840    ledNum_reg[0]_i_7_n_0
+    SLICE_X3Y85          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     1.954 r  ledNum_reg[0]_i_8/CO[3]
+                         net (fo=1, routed)           0.000     1.954    ledNum_reg[0]_i_8_n_0
+    SLICE_X3Y86          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.068 r  ledNum_reg[0]_i_13/CO[3]
+                         net (fo=1, routed)           0.000     2.068    ledNum_reg[0]_i_13_n_0
+    SLICE_X3Y87          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.182 r  ledNum_reg[0]_i_12/CO[3]
+                         net (fo=1, routed)           0.000     2.182    ledNum_reg[0]_i_12_n_0
+    SLICE_X3Y88          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.296 r  ledNum_reg[0]_i_11/CO[3]
+                         net (fo=1, routed)           0.000     2.296    ledNum_reg[0]_i_11_n_0
+    SLICE_X3Y89          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.410 r  ledNum_reg[0]_i_18/CO[3]
+                         net (fo=1, routed)           0.000     2.410    ledNum_reg[0]_i_18_n_0
+    SLICE_X3Y90          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.524 r  ledNum_reg[0]_i_17/CO[3]
+                         net (fo=1, routed)           0.000     2.524    ledNum_reg[0]_i_17_n_0
+    SLICE_X3Y91          CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     2.763 r  ledNum_reg[0]_i_14/O[2]
+                         net (fo=1, routed)           0.823     3.586    ledNum_reg[0]_i_14_n_5
+    SLICE_X4Y90          LUT4 (Prop_lut4_I3_O)        0.302     3.888 r  ledNum[0]_i_16/O
+                         net (fo=1, routed)           0.649     4.538    ledNum[0]_i_16_n_0
+    SLICE_X4Y88          LUT6 (Prop_lut6_I5_O)        0.124     4.662 f  ledNum[0]_i_5/O
+                         net (fo=1, routed)           0.642     5.303    ledNum[0]_i_5_n_0
+    SLICE_X4Y86          LUT4 (Prop_lut4_I3_O)        0.124     5.427 r  ledNum[0]_i_1/O
+                         net (fo=48, routed)          1.441     6.868    ledNum[0]_i_1_n_0
+    SLICE_X2Y79          FDRE                                         r  slide_reg[1]/CE
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 index_reg[1]/C
+  Source:                 ledNum_reg[1]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            ledNum_reg[14]/R
+  Destination:            slide_reg[2]/CE
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        6.248ns  (logic 1.269ns (20.311%)  route 4.979ns (79.689%))
-  Logic Levels:           6  (FDRE=1 LUT3=1 LUT5=3 LUT6=1)
+  Data Path Delay:        6.868ns  (logic 2.647ns (38.543%)  route 4.221ns (61.457%))
+  Logic Levels:           12  (CARRY4=8 FDRE=1 LUT4=2 LUT6=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X6Y80          FDRE                         0.000     0.000 r  index_reg[1]/C
-    SLICE_X6Y80          FDRE (Prop_fdre_C_Q)         0.478     0.478 r  index_reg[1]/Q
-                         net (fo=9, routed)           0.831     1.309    index_reg[1]
-    SLICE_X5Y80          LUT3 (Prop_lut3_I0_O)        0.295     1.604 r  index[6]_i_3/O
-                         net (fo=2, routed)           0.800     2.404    index[6]_i_3_n_0
-    SLICE_X5Y81          LUT5 (Prop_lut5_I4_O)        0.124     2.528 r  index[6]_i_1/O
-                         net (fo=45, routed)          1.562     4.090    sel
-    SLICE_X4Y84          LUT6 (Prop_lut6_I4_O)        0.124     4.214 r  ledNum[0]_i_16/O
-                         net (fo=1, routed)           0.669     4.883    ledNum[0]_i_16_n_0
-    SLICE_X4Y84          LUT5 (Prop_lut5_I4_O)        0.124     5.007 r  ledNum[0]_i_7/O
-                         net (fo=1, routed)           0.159     5.166    ledNum[0]_i_7_n_0
-    SLICE_X4Y84          LUT5 (Prop_lut5_I4_O)        0.124     5.290 r  ledNum[0]_i_1/O
-                         net (fo=32, routed)          0.958     6.248    clear
-    SLICE_X3Y83          FDRE                                         r  ledNum_reg[14]/R
+    SLICE_X2Y83          FDRE                         0.000     0.000 r  ledNum_reg[1]/C
+    SLICE_X2Y83          FDRE (Prop_fdre_C_Q)         0.518     0.518 r  ledNum_reg[1]/Q
+                         net (fo=5, routed)           0.666     1.184    ledNum_reg[1]
+    SLICE_X3Y84          CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.656     1.840 r  ledNum_reg[0]_i_7/CO[3]
+                         net (fo=1, routed)           0.000     1.840    ledNum_reg[0]_i_7_n_0
+    SLICE_X3Y85          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     1.954 r  ledNum_reg[0]_i_8/CO[3]
+                         net (fo=1, routed)           0.000     1.954    ledNum_reg[0]_i_8_n_0
+    SLICE_X3Y86          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.068 r  ledNum_reg[0]_i_13/CO[3]
+                         net (fo=1, routed)           0.000     2.068    ledNum_reg[0]_i_13_n_0
+    SLICE_X3Y87          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.182 r  ledNum_reg[0]_i_12/CO[3]
+                         net (fo=1, routed)           0.000     2.182    ledNum_reg[0]_i_12_n_0
+    SLICE_X3Y88          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.296 r  ledNum_reg[0]_i_11/CO[3]
+                         net (fo=1, routed)           0.000     2.296    ledNum_reg[0]_i_11_n_0
+    SLICE_X3Y89          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.410 r  ledNum_reg[0]_i_18/CO[3]
+                         net (fo=1, routed)           0.000     2.410    ledNum_reg[0]_i_18_n_0
+    SLICE_X3Y90          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.524 r  ledNum_reg[0]_i_17/CO[3]
+                         net (fo=1, routed)           0.000     2.524    ledNum_reg[0]_i_17_n_0
+    SLICE_X3Y91          CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     2.763 r  ledNum_reg[0]_i_14/O[2]
+                         net (fo=1, routed)           0.823     3.586    ledNum_reg[0]_i_14_n_5
+    SLICE_X4Y90          LUT4 (Prop_lut4_I3_O)        0.302     3.888 r  ledNum[0]_i_16/O
+                         net (fo=1, routed)           0.649     4.538    ledNum[0]_i_16_n_0
+    SLICE_X4Y88          LUT6 (Prop_lut6_I5_O)        0.124     4.662 f  ledNum[0]_i_5/O
+                         net (fo=1, routed)           0.642     5.303    ledNum[0]_i_5_n_0
+    SLICE_X4Y86          LUT4 (Prop_lut4_I3_O)        0.124     5.427 r  ledNum[0]_i_1/O
+                         net (fo=48, routed)          1.441     6.868    ledNum[0]_i_1_n_0
+    SLICE_X2Y79          FDRE                                         r  slide_reg[2]/CE
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 index_reg[1]/C
+  Source:                 ledNum_reg[1]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            ledNum_reg[15]/R
+  Destination:            slide_reg[3]/CE
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        6.248ns  (logic 1.269ns (20.311%)  route 4.979ns (79.689%))
-  Logic Levels:           6  (FDRE=1 LUT3=1 LUT5=3 LUT6=1)
+  Data Path Delay:        6.868ns  (logic 2.647ns (38.543%)  route 4.221ns (61.457%))
+  Logic Levels:           12  (CARRY4=8 FDRE=1 LUT4=2 LUT6=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X6Y80          FDRE                         0.000     0.000 r  index_reg[1]/C
-    SLICE_X6Y80          FDRE (Prop_fdre_C_Q)         0.478     0.478 r  index_reg[1]/Q
-                         net (fo=9, routed)           0.831     1.309    index_reg[1]
-    SLICE_X5Y80          LUT3 (Prop_lut3_I0_O)        0.295     1.604 r  index[6]_i_3/O
-                         net (fo=2, routed)           0.800     2.404    index[6]_i_3_n_0
-    SLICE_X5Y81          LUT5 (Prop_lut5_I4_O)        0.124     2.528 r  index[6]_i_1/O
-                         net (fo=45, routed)          1.562     4.090    sel
-    SLICE_X4Y84          LUT6 (Prop_lut6_I4_O)        0.124     4.214 r  ledNum[0]_i_16/O
-                         net (fo=1, routed)           0.669     4.883    ledNum[0]_i_16_n_0
-    SLICE_X4Y84          LUT5 (Prop_lut5_I4_O)        0.124     5.007 r  ledNum[0]_i_7/O
-                         net (fo=1, routed)           0.159     5.166    ledNum[0]_i_7_n_0
-    SLICE_X4Y84          LUT5 (Prop_lut5_I4_O)        0.124     5.290 r  ledNum[0]_i_1/O
-                         net (fo=32, routed)          0.958     6.248    clear
-    SLICE_X3Y83          FDRE                                         r  ledNum_reg[15]/R
+    SLICE_X2Y83          FDRE                         0.000     0.000 r  ledNum_reg[1]/C
+    SLICE_X2Y83          FDRE (Prop_fdre_C_Q)         0.518     0.518 r  ledNum_reg[1]/Q
+                         net (fo=5, routed)           0.666     1.184    ledNum_reg[1]
+    SLICE_X3Y84          CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.656     1.840 r  ledNum_reg[0]_i_7/CO[3]
+                         net (fo=1, routed)           0.000     1.840    ledNum_reg[0]_i_7_n_0
+    SLICE_X3Y85          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     1.954 r  ledNum_reg[0]_i_8/CO[3]
+                         net (fo=1, routed)           0.000     1.954    ledNum_reg[0]_i_8_n_0
+    SLICE_X3Y86          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.068 r  ledNum_reg[0]_i_13/CO[3]
+                         net (fo=1, routed)           0.000     2.068    ledNum_reg[0]_i_13_n_0
+    SLICE_X3Y87          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.182 r  ledNum_reg[0]_i_12/CO[3]
+                         net (fo=1, routed)           0.000     2.182    ledNum_reg[0]_i_12_n_0
+    SLICE_X3Y88          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.296 r  ledNum_reg[0]_i_11/CO[3]
+                         net (fo=1, routed)           0.000     2.296    ledNum_reg[0]_i_11_n_0
+    SLICE_X3Y89          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.410 r  ledNum_reg[0]_i_18/CO[3]
+                         net (fo=1, routed)           0.000     2.410    ledNum_reg[0]_i_18_n_0
+    SLICE_X3Y90          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.524 r  ledNum_reg[0]_i_17/CO[3]
+                         net (fo=1, routed)           0.000     2.524    ledNum_reg[0]_i_17_n_0
+    SLICE_X3Y91          CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     2.763 r  ledNum_reg[0]_i_14/O[2]
+                         net (fo=1, routed)           0.823     3.586    ledNum_reg[0]_i_14_n_5
+    SLICE_X4Y90          LUT4 (Prop_lut4_I3_O)        0.302     3.888 r  ledNum[0]_i_16/O
+                         net (fo=1, routed)           0.649     4.538    ledNum[0]_i_16_n_0
+    SLICE_X4Y88          LUT6 (Prop_lut6_I5_O)        0.124     4.662 f  ledNum[0]_i_5/O
+                         net (fo=1, routed)           0.642     5.303    ledNum[0]_i_5_n_0
+    SLICE_X4Y86          LUT4 (Prop_lut4_I3_O)        0.124     5.427 r  ledNum[0]_i_1/O
+                         net (fo=48, routed)          1.441     6.868    ledNum[0]_i_1_n_0
+    SLICE_X2Y79          FDRE                                         r  slide_reg[3]/CE
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 index_reg[1]/C
+  Source:                 ledNum_reg[1]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            ledNum_reg[28]/R
+  Destination:            slide_reg[4]/CE
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        6.243ns  (logic 1.269ns (20.325%)  route 4.974ns (79.675%))
-  Logic Levels:           6  (FDRE=1 LUT3=1 LUT5=3 LUT6=1)
+  Data Path Delay:        6.558ns  (logic 2.647ns (40.360%)  route 3.911ns (59.640%))
+  Logic Levels:           12  (CARRY4=8 FDRE=1 LUT4=2 LUT6=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X6Y80          FDRE                         0.000     0.000 r  index_reg[1]/C
-    SLICE_X6Y80          FDRE (Prop_fdre_C_Q)         0.478     0.478 r  index_reg[1]/Q
-                         net (fo=9, routed)           0.831     1.309    index_reg[1]
-    SLICE_X5Y80          LUT3 (Prop_lut3_I0_O)        0.295     1.604 r  index[6]_i_3/O
-                         net (fo=2, routed)           0.800     2.404    index[6]_i_3_n_0
-    SLICE_X5Y81          LUT5 (Prop_lut5_I4_O)        0.124     2.528 r  index[6]_i_1/O
-                         net (fo=45, routed)          1.562     4.090    sel
-    SLICE_X4Y84          LUT6 (Prop_lut6_I4_O)        0.124     4.214 r  ledNum[0]_i_16/O
-                         net (fo=1, routed)           0.669     4.883    ledNum[0]_i_16_n_0
-    SLICE_X4Y84          LUT5 (Prop_lut5_I4_O)        0.124     5.007 r  ledNum[0]_i_7/O
-                         net (fo=1, routed)           0.159     5.166    ledNum[0]_i_7_n_0
-    SLICE_X4Y84          LUT5 (Prop_lut5_I4_O)        0.124     5.290 r  ledNum[0]_i_1/O
-                         net (fo=32, routed)          0.954     6.243    clear
-    SLICE_X3Y87          FDRE                                         r  ledNum_reg[28]/R
+    SLICE_X2Y83          FDRE                         0.000     0.000 r  ledNum_reg[1]/C
+    SLICE_X2Y83          FDRE (Prop_fdre_C_Q)         0.518     0.518 r  ledNum_reg[1]/Q
+                         net (fo=5, routed)           0.666     1.184    ledNum_reg[1]
+    SLICE_X3Y84          CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.656     1.840 r  ledNum_reg[0]_i_7/CO[3]
+                         net (fo=1, routed)           0.000     1.840    ledNum_reg[0]_i_7_n_0
+    SLICE_X3Y85          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     1.954 r  ledNum_reg[0]_i_8/CO[3]
+                         net (fo=1, routed)           0.000     1.954    ledNum_reg[0]_i_8_n_0
+    SLICE_X3Y86          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.068 r  ledNum_reg[0]_i_13/CO[3]
+                         net (fo=1, routed)           0.000     2.068    ledNum_reg[0]_i_13_n_0
+    SLICE_X3Y87          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.182 r  ledNum_reg[0]_i_12/CO[3]
+                         net (fo=1, routed)           0.000     2.182    ledNum_reg[0]_i_12_n_0
+    SLICE_X3Y88          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.296 r  ledNum_reg[0]_i_11/CO[3]
+                         net (fo=1, routed)           0.000     2.296    ledNum_reg[0]_i_11_n_0
+    SLICE_X3Y89          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.410 r  ledNum_reg[0]_i_18/CO[3]
+                         net (fo=1, routed)           0.000     2.410    ledNum_reg[0]_i_18_n_0
+    SLICE_X3Y90          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.524 r  ledNum_reg[0]_i_17/CO[3]
+                         net (fo=1, routed)           0.000     2.524    ledNum_reg[0]_i_17_n_0
+    SLICE_X3Y91          CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     2.763 r  ledNum_reg[0]_i_14/O[2]
+                         net (fo=1, routed)           0.823     3.586    ledNum_reg[0]_i_14_n_5
+    SLICE_X4Y90          LUT4 (Prop_lut4_I3_O)        0.302     3.888 r  ledNum[0]_i_16/O
+                         net (fo=1, routed)           0.649     4.538    ledNum[0]_i_16_n_0
+    SLICE_X4Y88          LUT6 (Prop_lut6_I5_O)        0.124     4.662 f  ledNum[0]_i_5/O
+                         net (fo=1, routed)           0.642     5.303    ledNum[0]_i_5_n_0
+    SLICE_X4Y86          LUT4 (Prop_lut4_I3_O)        0.124     5.427 r  ledNum[0]_i_1/O
+                         net (fo=48, routed)          1.131     6.558    ledNum[0]_i_1_n_0
+    SLICE_X2Y80          FDRE                                         r  slide_reg[4]/CE
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 index_reg[1]/C
+  Source:                 ledNum_reg[1]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            ledNum_reg[29]/R
+  Destination:            slide_reg[5]/CE
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        6.243ns  (logic 1.269ns (20.325%)  route 4.974ns (79.675%))
-  Logic Levels:           6  (FDRE=1 LUT3=1 LUT5=3 LUT6=1)
+  Data Path Delay:        6.558ns  (logic 2.647ns (40.360%)  route 3.911ns (59.640%))
+  Logic Levels:           12  (CARRY4=8 FDRE=1 LUT4=2 LUT6=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X6Y80          FDRE                         0.000     0.000 r  index_reg[1]/C
-    SLICE_X6Y80          FDRE (Prop_fdre_C_Q)         0.478     0.478 r  index_reg[1]/Q
-                         net (fo=9, routed)           0.831     1.309    index_reg[1]
-    SLICE_X5Y80          LUT3 (Prop_lut3_I0_O)        0.295     1.604 r  index[6]_i_3/O
-                         net (fo=2, routed)           0.800     2.404    index[6]_i_3_n_0
-    SLICE_X5Y81          LUT5 (Prop_lut5_I4_O)        0.124     2.528 r  index[6]_i_1/O
-                         net (fo=45, routed)          1.562     4.090    sel
-    SLICE_X4Y84          LUT6 (Prop_lut6_I4_O)        0.124     4.214 r  ledNum[0]_i_16/O
-                         net (fo=1, routed)           0.669     4.883    ledNum[0]_i_16_n_0
-    SLICE_X4Y84          LUT5 (Prop_lut5_I4_O)        0.124     5.007 r  ledNum[0]_i_7/O
-                         net (fo=1, routed)           0.159     5.166    ledNum[0]_i_7_n_0
-    SLICE_X4Y84          LUT5 (Prop_lut5_I4_O)        0.124     5.290 r  ledNum[0]_i_1/O
-                         net (fo=32, routed)          0.954     6.243    clear
-    SLICE_X3Y87          FDRE                                         r  ledNum_reg[29]/R
+    SLICE_X2Y83          FDRE                         0.000     0.000 r  ledNum_reg[1]/C
+    SLICE_X2Y83          FDRE (Prop_fdre_C_Q)         0.518     0.518 r  ledNum_reg[1]/Q
+                         net (fo=5, routed)           0.666     1.184    ledNum_reg[1]
+    SLICE_X3Y84          CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.656     1.840 r  ledNum_reg[0]_i_7/CO[3]
+                         net (fo=1, routed)           0.000     1.840    ledNum_reg[0]_i_7_n_0
+    SLICE_X3Y85          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     1.954 r  ledNum_reg[0]_i_8/CO[3]
+                         net (fo=1, routed)           0.000     1.954    ledNum_reg[0]_i_8_n_0
+    SLICE_X3Y86          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.068 r  ledNum_reg[0]_i_13/CO[3]
+                         net (fo=1, routed)           0.000     2.068    ledNum_reg[0]_i_13_n_0
+    SLICE_X3Y87          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.182 r  ledNum_reg[0]_i_12/CO[3]
+                         net (fo=1, routed)           0.000     2.182    ledNum_reg[0]_i_12_n_0
+    SLICE_X3Y88          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.296 r  ledNum_reg[0]_i_11/CO[3]
+                         net (fo=1, routed)           0.000     2.296    ledNum_reg[0]_i_11_n_0
+    SLICE_X3Y89          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.410 r  ledNum_reg[0]_i_18/CO[3]
+                         net (fo=1, routed)           0.000     2.410    ledNum_reg[0]_i_18_n_0
+    SLICE_X3Y90          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.524 r  ledNum_reg[0]_i_17/CO[3]
+                         net (fo=1, routed)           0.000     2.524    ledNum_reg[0]_i_17_n_0
+    SLICE_X3Y91          CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     2.763 r  ledNum_reg[0]_i_14/O[2]
+                         net (fo=1, routed)           0.823     3.586    ledNum_reg[0]_i_14_n_5
+    SLICE_X4Y90          LUT4 (Prop_lut4_I3_O)        0.302     3.888 r  ledNum[0]_i_16/O
+                         net (fo=1, routed)           0.649     4.538    ledNum[0]_i_16_n_0
+    SLICE_X4Y88          LUT6 (Prop_lut6_I5_O)        0.124     4.662 f  ledNum[0]_i_5/O
+                         net (fo=1, routed)           0.642     5.303    ledNum[0]_i_5_n_0
+    SLICE_X4Y86          LUT4 (Prop_lut4_I3_O)        0.124     5.427 r  ledNum[0]_i_1/O
+                         net (fo=48, routed)          1.131     6.558    ledNum[0]_i_1_n_0
+    SLICE_X2Y80          FDRE                                         r  slide_reg[5]/CE
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 index_reg[1]/C
+  Source:                 ledNum_reg[1]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            ledNum_reg[30]/R
+  Destination:            slide_reg[6]/CE
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        6.243ns  (logic 1.269ns (20.325%)  route 4.974ns (79.675%))
-  Logic Levels:           6  (FDRE=1 LUT3=1 LUT5=3 LUT6=1)
+  Data Path Delay:        6.558ns  (logic 2.647ns (40.360%)  route 3.911ns (59.640%))
+  Logic Levels:           12  (CARRY4=8 FDRE=1 LUT4=2 LUT6=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X6Y80          FDRE                         0.000     0.000 r  index_reg[1]/C
-    SLICE_X6Y80          FDRE (Prop_fdre_C_Q)         0.478     0.478 r  index_reg[1]/Q
-                         net (fo=9, routed)           0.831     1.309    index_reg[1]
-    SLICE_X5Y80          LUT3 (Prop_lut3_I0_O)        0.295     1.604 r  index[6]_i_3/O
-                         net (fo=2, routed)           0.800     2.404    index[6]_i_3_n_0
-    SLICE_X5Y81          LUT5 (Prop_lut5_I4_O)        0.124     2.528 r  index[6]_i_1/O
-                         net (fo=45, routed)          1.562     4.090    sel
-    SLICE_X4Y84          LUT6 (Prop_lut6_I4_O)        0.124     4.214 r  ledNum[0]_i_16/O
-                         net (fo=1, routed)           0.669     4.883    ledNum[0]_i_16_n_0
-    SLICE_X4Y84          LUT5 (Prop_lut5_I4_O)        0.124     5.007 r  ledNum[0]_i_7/O
-                         net (fo=1, routed)           0.159     5.166    ledNum[0]_i_7_n_0
-    SLICE_X4Y84          LUT5 (Prop_lut5_I4_O)        0.124     5.290 r  ledNum[0]_i_1/O
-                         net (fo=32, routed)          0.954     6.243    clear
-    SLICE_X3Y87          FDRE                                         r  ledNum_reg[30]/R
+    SLICE_X2Y83          FDRE                         0.000     0.000 r  ledNum_reg[1]/C
+    SLICE_X2Y83          FDRE (Prop_fdre_C_Q)         0.518     0.518 r  ledNum_reg[1]/Q
+                         net (fo=5, routed)           0.666     1.184    ledNum_reg[1]
+    SLICE_X3Y84          CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.656     1.840 r  ledNum_reg[0]_i_7/CO[3]
+                         net (fo=1, routed)           0.000     1.840    ledNum_reg[0]_i_7_n_0
+    SLICE_X3Y85          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     1.954 r  ledNum_reg[0]_i_8/CO[3]
+                         net (fo=1, routed)           0.000     1.954    ledNum_reg[0]_i_8_n_0
+    SLICE_X3Y86          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.068 r  ledNum_reg[0]_i_13/CO[3]
+                         net (fo=1, routed)           0.000     2.068    ledNum_reg[0]_i_13_n_0
+    SLICE_X3Y87          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.182 r  ledNum_reg[0]_i_12/CO[3]
+                         net (fo=1, routed)           0.000     2.182    ledNum_reg[0]_i_12_n_0
+    SLICE_X3Y88          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.296 r  ledNum_reg[0]_i_11/CO[3]
+                         net (fo=1, routed)           0.000     2.296    ledNum_reg[0]_i_11_n_0
+    SLICE_X3Y89          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.410 r  ledNum_reg[0]_i_18/CO[3]
+                         net (fo=1, routed)           0.000     2.410    ledNum_reg[0]_i_18_n_0
+    SLICE_X3Y90          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.524 r  ledNum_reg[0]_i_17/CO[3]
+                         net (fo=1, routed)           0.000     2.524    ledNum_reg[0]_i_17_n_0
+    SLICE_X3Y91          CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     2.763 r  ledNum_reg[0]_i_14/O[2]
+                         net (fo=1, routed)           0.823     3.586    ledNum_reg[0]_i_14_n_5
+    SLICE_X4Y90          LUT4 (Prop_lut4_I3_O)        0.302     3.888 r  ledNum[0]_i_16/O
+                         net (fo=1, routed)           0.649     4.538    ledNum[0]_i_16_n_0
+    SLICE_X4Y88          LUT6 (Prop_lut6_I5_O)        0.124     4.662 f  ledNum[0]_i_5/O
+                         net (fo=1, routed)           0.642     5.303    ledNum[0]_i_5_n_0
+    SLICE_X4Y86          LUT4 (Prop_lut4_I3_O)        0.124     5.427 r  ledNum[0]_i_1/O
+                         net (fo=48, routed)          1.131     6.558    ledNum[0]_i_1_n_0
+    SLICE_X2Y80          FDRE                                         r  slide_reg[6]/CE
   -------------------------------------------------------------------    -------------------
 
 
@@ -536,42 +760,99 @@ Slack:                    inf
   Destination:            z/clock_out1_reg/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.318ns  (logic 0.186ns (58.401%)  route 0.132ns (41.599%))
+  Data Path Delay:        0.316ns  (logic 0.186ns (58.841%)  route 0.130ns (41.159%))
   Logic Levels:           2  (FDRE=1 LUT2=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y85          FDRE                         0.000     0.000 r  z/counter_reg[6]/C
-    SLICE_X1Y85          FDRE (Prop_fdre_C_Q)         0.141     0.141 f  z/counter_reg[6]/Q
-                         net (fo=3, routed)           0.132     0.273    z/counter_reg[6]
-    SLICE_X0Y84          LUT2 (Prop_lut2_I1_O)        0.045     0.318 r  z/clock_out1_i_1__0/O
-                         net (fo=1, routed)           0.000     0.318    z/clock_out1_i_1__0_n_0
-    SLICE_X0Y84          FDRE                                         r  z/clock_out1_reg/D
+    SLICE_X9Y88          FDRE                         0.000     0.000 r  z/counter_reg[6]/C
+    SLICE_X9Y88          FDRE (Prop_fdre_C_Q)         0.141     0.141 f  z/counter_reg[6]/Q
+                         net (fo=3, routed)           0.130     0.271    z/counter_reg[6]
+    SLICE_X8Y87          LUT2 (Prop_lut2_I1_O)        0.045     0.316 r  z/clock_out1_i_1__0/O
+                         net (fo=1, routed)           0.000     0.316    z/clock_out1_i_1__0_n_0
+    SLICE_X8Y87          FDRE                                         r  z/clock_out1_reg/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 o/counter_reg[5]/C
+  Source:                 o/counter_reg[1]/C
                             (rising edge-triggered cell FDRE)
   Destination:            o/clock_out1_reg/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.328ns  (logic 0.209ns (63.706%)  route 0.119ns (36.294%))
+  Data Path Delay:        0.338ns  (logic 0.186ns (54.991%)  route 0.152ns (45.009%))
   Logic Levels:           2  (FDRE=1 LUT6=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X14Y70         FDRE                         0.000     0.000 r  o/counter_reg[5]/C
-    SLICE_X14Y70         FDRE (Prop_fdre_C_Q)         0.164     0.164 f  o/counter_reg[5]/Q
-                         net (fo=3, routed)           0.119     0.283    o/counter_reg[5]
-    SLICE_X15Y69         LUT6 (Prop_lut6_I0_O)        0.045     0.328 r  o/clock_out1_i_1/O
-                         net (fo=1, routed)           0.000     0.328    o/clock_out1_i_1_n_0
-    SLICE_X15Y69         FDRE                                         r  o/clock_out1_reg/D
+    SLICE_X15Y74         FDRE                         0.000     0.000 r  o/counter_reg[1]/C
+    SLICE_X15Y74         FDRE (Prop_fdre_C_Q)         0.141     0.141 f  o/counter_reg[1]/Q
+                         net (fo=2, routed)           0.152     0.293    o/counter_reg[1]
+    SLICE_X14Y74         LUT6 (Prop_lut6_I1_O)        0.045     0.338 r  o/clock_out1_i_1/O
+                         net (fo=1, routed)           0.000     0.338    o/clock_out1_i_1_n_0
+    SLICE_X14Y74         FDRE                                         r  o/clock_out1_reg/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 ledNum_reg[16]/C
+  Source:                 index_reg[6]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            ledNum_reg[16]/D
+  Destination:            index_reg[6]/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.347ns  (logic 0.209ns (60.231%)  route 0.138ns (39.769%))
+  Logic Levels:           2  (FDRE=1 LUT3=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X6Y86          FDRE                         0.000     0.000 r  index_reg[6]/C
+    SLICE_X6Y86          FDRE (Prop_fdre_C_Q)         0.164     0.164 r  index_reg[6]/Q
+                         net (fo=3, routed)           0.138     0.302    index_reg[6]
+    SLICE_X6Y86          LUT3 (Prop_lut3_I0_O)        0.045     0.347 r  index[6]_i_2/O
+                         net (fo=1, routed)           0.000     0.347    p_0_in[6]
+    SLICE_X6Y86          FDRE                                         r  index_reg[6]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 index_reg[1]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            index_reg[3]/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.366ns  (logic 0.189ns (51.572%)  route 0.177ns (48.428%))
+  Logic Levels:           2  (FDRE=1 LUT4=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X5Y86          FDRE                         0.000     0.000 r  index_reg[1]/C
+    SLICE_X5Y86          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  index_reg[1]/Q
+                         net (fo=13, routed)          0.177     0.318    index_reg[1]
+    SLICE_X6Y86          LUT4 (Prop_lut4_I2_O)        0.048     0.366 r  index[3]_i_1/O
+                         net (fo=1, routed)           0.000     0.366    p_0_in[3]
+    SLICE_X6Y86          FDRE                                         r  index_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 index_reg[0]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            index_reg[4]/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.367ns  (logic 0.189ns (51.501%)  route 0.178ns (48.499%))
+  Logic Levels:           2  (FDRE=1 LUT5=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X5Y86          FDRE                         0.000     0.000 r  index_reg[0]/C
+    SLICE_X5Y86          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  index_reg[0]/Q
+                         net (fo=21, routed)          0.178     0.319    index_reg[0]
+    SLICE_X6Y85          LUT5 (Prop_lut5_I2_O)        0.048     0.367 r  index[4]_i_1/O
+                         net (fo=1, routed)           0.000     0.367    p_0_in[4]
+    SLICE_X6Y85          FDRE                                         r  index_reg[4]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 o/counter_reg[4]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            o/counter_reg[4]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
   Data Path Delay:        0.373ns  (logic 0.256ns (68.576%)  route 0.117ns (31.424%))
@@ -579,13 +860,13 @@ Slack:                    inf
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X3Y84          FDRE                         0.000     0.000 r  ledNum_reg[16]/C
-    SLICE_X3Y84          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  ledNum_reg[16]/Q
-                         net (fo=3, routed)           0.117     0.258    ledNum_reg__0[16]
-    SLICE_X3Y84          CARRY4 (Prop_carry4_S[0]_O[0])
-                                                      0.115     0.373 r  ledNum_reg[16]_i_1/O[0]
-                         net (fo=1, routed)           0.000     0.373    ledNum_reg[16]_i_1_n_7
-    SLICE_X3Y84          FDRE                                         r  ledNum_reg[16]/D
+    SLICE_X15Y75         FDRE                         0.000     0.000 r  o/counter_reg[4]/C
+    SLICE_X15Y75         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  o/counter_reg[4]/Q
+                         net (fo=3, routed)           0.117     0.258    o/counter_reg[4]
+    SLICE_X15Y75         CARRY4 (Prop_carry4_S[0]_O[0])
+                                                      0.115     0.373 r  o/counter_reg[4]_i_1/O[0]
+                         net (fo=1, routed)           0.000     0.373    o/counter_reg[4]_i_1_n_7
+    SLICE_X15Y75         FDRE                                         r  o/counter_reg[4]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
@@ -599,13 +880,33 @@ Slack:                    inf
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y85          FDRE                         0.000     0.000 r  z/counter_reg[4]/C
-    SLICE_X1Y85          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  z/counter_reg[4]/Q
+    SLICE_X9Y88          FDRE                         0.000     0.000 r  z/counter_reg[4]/C
+    SLICE_X9Y88          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  z/counter_reg[4]/Q
                          net (fo=3, routed)           0.117     0.258    z/counter_reg[4]
-    SLICE_X1Y85          CARRY4 (Prop_carry4_S[0]_O[0])
+    SLICE_X9Y88          CARRY4 (Prop_carry4_S[0]_O[0])
                                                       0.115     0.373 r  z/counter_reg[4]_i_1__0/O[0]
                          net (fo=1, routed)           0.000     0.373    z/counter_reg[4]_i_1__0_n_7
-    SLICE_X1Y85          FDRE                                         r  z/counter_reg[4]/D
+    SLICE_X9Y88          FDRE                                         r  z/counter_reg[4]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 o/counter_reg[6]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            o/counter_reg[6]/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.374ns  (logic 0.252ns (67.467%)  route 0.122ns (32.533%))
+  Logic Levels:           2  (CARRY4=1 FDRE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X15Y75         FDRE                         0.000     0.000 r  o/counter_reg[6]/C
+    SLICE_X15Y75         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  o/counter_reg[6]/Q
+                         net (fo=3, routed)           0.122     0.263    o/counter_reg[6]
+    SLICE_X15Y75         CARRY4 (Prop_carry4_S[2]_O[2])
+                                                      0.111     0.374 r  o/counter_reg[4]_i_1/O[2]
+                         net (fo=1, routed)           0.000     0.374    o/counter_reg[4]_i_1_n_5
+    SLICE_X15Y75         FDRE                                         r  o/counter_reg[6]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
@@ -619,112 +920,33 @@ Slack:                    inf
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y85          FDRE                         0.000     0.000 r  z/counter_reg[6]/C
-    SLICE_X1Y85          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  z/counter_reg[6]/Q
+    SLICE_X9Y88          FDRE                         0.000     0.000 r  z/counter_reg[6]/C
+    SLICE_X9Y88          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  z/counter_reg[6]/Q
                          net (fo=3, routed)           0.122     0.263    z/counter_reg[6]
-    SLICE_X1Y85          CARRY4 (Prop_carry4_S[2]_O[2])
+    SLICE_X9Y88          CARRY4 (Prop_carry4_S[2]_O[2])
                                                       0.111     0.374 r  z/counter_reg[4]_i_1__0/O[2]
                          net (fo=1, routed)           0.000     0.374    z/counter_reg[4]_i_1__0_n_5
-    SLICE_X1Y85          FDRE                                         r  z/counter_reg[6]/D
+    SLICE_X9Y88          FDRE                                         r  z/counter_reg[6]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 index_reg[2]/C
+  Source:                 o/counter_reg[3]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            index_reg[2]/D
+  Destination:            o/counter_reg[3]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.376ns  (logic 0.183ns (48.734%)  route 0.193ns (51.266%))
-  Logic Levels:           2  (FDRE=1 LUT3=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X5Y80          FDRE                         0.000     0.000 r  index_reg[2]/C
-    SLICE_X5Y80          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  index_reg[2]/Q
-                         net (fo=14, routed)          0.193     0.334    index_reg[2]
-    SLICE_X5Y80          LUT3 (Prop_lut3_I2_O)        0.042     0.376 r  index[2]_i_1/O
-                         net (fo=1, routed)           0.000     0.376    p_0_in__0[2]
-    SLICE_X5Y80          FDRE                                         r  index_reg[2]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 z/counter_reg[3]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            z/counter_reg[3]/D
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.377ns  (logic 0.249ns (65.993%)  route 0.128ns (34.007%))
+  Data Path Delay:        0.375ns  (logic 0.249ns (66.356%)  route 0.126ns (33.644%))
   Logic Levels:           2  (CARRY4=1 FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y84          FDRE                         0.000     0.000 r  z/counter_reg[3]/C
-    SLICE_X1Y84          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  z/counter_reg[3]/Q
-                         net (fo=3, routed)           0.128     0.269    z/counter_reg[3]
-    SLICE_X1Y84          CARRY4 (Prop_carry4_S[3]_O[3])
-                                                      0.108     0.377 r  z/counter_reg[0]_i_2__0/O[3]
-                         net (fo=1, routed)           0.000     0.377    z/counter_reg[0]_i_2__0_n_4
-    SLICE_X1Y84          FDRE                                         r  z/counter_reg[3]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 ledNum_reg[11]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            ledNum_reg[11]/D
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.378ns  (logic 0.249ns (65.882%)  route 0.129ns (34.118%))
-  Logic Levels:           2  (CARRY4=1 FDRE=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X3Y82          FDRE                         0.000     0.000 r  ledNum_reg[11]/C
-    SLICE_X3Y82          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  ledNum_reg[11]/Q
-                         net (fo=3, routed)           0.129     0.270    ledNum_reg__0[11]
-    SLICE_X3Y82          CARRY4 (Prop_carry4_S[3]_O[3])
-                                                      0.108     0.378 r  ledNum_reg[8]_i_1/O[3]
-                         net (fo=1, routed)           0.000     0.378    ledNum_reg[8]_i_1_n_4
-    SLICE_X3Y82          FDRE                                         r  ledNum_reg[11]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 ledNum_reg[19]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            ledNum_reg[19]/D
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.378ns  (logic 0.249ns (65.873%)  route 0.129ns (34.127%))
-  Logic Levels:           2  (CARRY4=1 FDRE=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X3Y84          FDRE                         0.000     0.000 r  ledNum_reg[19]/C
-    SLICE_X3Y84          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  ledNum_reg[19]/Q
-                         net (fo=3, routed)           0.129     0.270    ledNum_reg__0[19]
-    SLICE_X3Y84          CARRY4 (Prop_carry4_S[3]_O[3])
-                                                      0.108     0.378 r  ledNum_reg[16]_i_1/O[3]
-                         net (fo=1, routed)           0.000     0.378    ledNum_reg[16]_i_1_n_4
-    SLICE_X3Y84          FDRE                                         r  ledNum_reg[19]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 ledNum_reg[31]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            ledNum_reg[31]/D
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.378ns  (logic 0.249ns (65.873%)  route 0.129ns (34.127%))
-  Logic Levels:           2  (CARRY4=1 FDRE=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X3Y87          FDRE                         0.000     0.000 r  ledNum_reg[31]/C
-    SLICE_X3Y87          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  ledNum_reg[31]/Q
-                         net (fo=3, routed)           0.129     0.270    ledNum_reg__0[31]
-    SLICE_X3Y87          CARRY4 (Prop_carry4_S[3]_O[3])
-                                                      0.108     0.378 r  ledNum_reg[28]_i_1/O[3]
-                         net (fo=1, routed)           0.000     0.378    ledNum_reg[28]_i_1_n_4
-    SLICE_X3Y87          FDRE                                         r  ledNum_reg[31]/D
+    SLICE_X15Y74         FDRE                         0.000     0.000 r  o/counter_reg[3]/C
+    SLICE_X15Y74         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  o/counter_reg[3]/Q
+                         net (fo=3, routed)           0.126     0.267    o/counter_reg[3]
+    SLICE_X15Y74         CARRY4 (Prop_carry4_S[3]_O[3])
+                                                      0.108     0.375 r  o/counter_reg[0]_i_2/O[3]
+                         net (fo=1, routed)           0.000     0.375    o/counter_reg[0]_i_2_n_4
+    SLICE_X15Y74         FDRE                                         r  o/counter_reg[3]/D
   -------------------------------------------------------------------    -------------------
 
 

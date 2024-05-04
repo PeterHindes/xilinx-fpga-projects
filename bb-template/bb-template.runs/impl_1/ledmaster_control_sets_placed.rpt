@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date         : Thu May  2 23:46:35 2024
+| Date         : Fri May  3 20:40:11 2024
 | Host         : DESKTOP-0813D9N running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file ledmaster_control_sets_placed.rpt
 | Design       : ledmaster
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |     5 |
-|    Minimum number of control sets                        |     5 |
+| Total control sets                                       |     6 |
+|    Minimum number of control sets                        |     6 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
 | Unused register locations in slices containing registers |     9 |
@@ -39,7 +39,7 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |     5 |
+| Total control sets |     6 |
 | >= 0 to < 4        |     1 |
 | >= 4 to < 6        |     0 |
 | >= 6 to < 8        |     3 |
@@ -47,7 +47,7 @@ Table of Contents
 | >= 10 to < 12      |     0 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
-| >= 16              |     1 |
+| >= 16              |     2 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -61,7 +61,7 @@ Table of Contents
 | No           | No                    | No                     |               2 |            2 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |              21 |            7 |
-| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | No                     |              16 |            4 |
 | Yes          | No                    | Yes                    |               0 |            0 |
 | Yes          | Yes                   | No                     |              32 |            8 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
@@ -70,14 +70,15 @@ Table of Contents
 4. Detailed Control Set Information
 -----------------------------------
 
-+-----------------+---------------+-------------------------+------------------+----------------+--------------+
-|   Clock Signal  | Enable Signal |     Set/Reset Signal    | Slice Load Count | Bel Load Count | Bels / Slice |
-+-----------------+---------------+-------------------------+------------------+----------------+--------------+
-|  mclk_IBUF_BUFG |               |                         |                2 |              2 |         1.00 |
-|  mclk_IBUF_BUFG |               | o/counter[0]_i_1_n_0    |                2 |              7 |         3.50 |
-|  mclk_IBUF_BUFG |               | z/counter[0]_i_1__0_n_0 |                2 |              7 |         3.50 |
-|  ock_BUFG       |               | sel                     |                3 |              7 |         2.33 |
-|  ock_BUFG       | sel           | clear                   |                8 |             32 |         4.00 |
-+-----------------+---------------+-------------------------+------------------+----------------+--------------+
++-----------------+-------------------+-------------------------+------------------+----------------+--------------+
+|   Clock Signal  |   Enable Signal   |     Set/Reset Signal    | Slice Load Count | Bel Load Count | Bels / Slice |
++-----------------+-------------------+-------------------------+------------------+----------------+--------------+
+|  mclk_IBUF_BUFG |                   |                         |                2 |              2 |         1.00 |
+|  ock_BUFG       |                   | sel                     |                3 |              7 |         2.33 |
+|  mclk_IBUF_BUFG |                   | o/clear                 |                2 |              7 |         3.50 |
+|  mclk_IBUF_BUFG |                   | z/counter[0]_i_1__0_n_0 |                2 |              7 |         3.50 |
+|  ock_BUFG       | ledNum[0]_i_1_n_0 |                         |                4 |             16 |         4.00 |
+|  ock_BUFG       | sel               | ledNum[0]_i_1_n_0       |                8 |             32 |         4.00 |
++-----------------+-------------------+-------------------------+------------------+----------------+--------------+
 
 

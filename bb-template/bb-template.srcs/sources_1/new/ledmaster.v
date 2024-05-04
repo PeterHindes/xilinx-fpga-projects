@@ -37,6 +37,8 @@ endmodule
 
 module ledmaster(
      input mclk
+    ,input [15:0] led
+    ,input [3:0] btn
     ,output [7:0] PA
     );
     wire ock;
@@ -44,10 +46,14 @@ module ledmaster(
     wire [23:0] color;
     reg [6:0] index = -1;
     reg [31:0] ledNum = 0;
+    reg [15:0] slide = 0;
     
-    parameter SHOWN = 4; // Play with this!!
+    parameter SHOWN = 25; // Play with this!!
 
-    rainbow rbw(ledNum,color);
+    // Debug
+//    assign led = btn[0] ? slide : slide/'d1000;
+
+    rainbow rbw(ledNum+slide/'d50,color);
     clock o(mclk, 'd125, 'd90, ock);
     clock z(mclk, 'd125, 'd35, zck);
 
@@ -60,6 +66,7 @@ module ledmaster(
             ledNum = ledNum + 1;
             if (ledNum > SHOWN + 24) begin // 24 leds worth of blanking time
                 ledNum = 0;
+                slide = slide - 1;
             end
         end
     end

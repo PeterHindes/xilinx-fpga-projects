@@ -3,8 +3,8 @@
 # SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Thu May  2 23:45:32 2024
-# Process ID: 111432
+# Start of session at: Fri May  3 20:39:11 2024
+# Process ID: 113880
 # Current directory: C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/bb-template/bb-template.runs/synth_1
 # Command line: vivado.exe -log ledmaster.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ledmaster.tcl
 # Log file: C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/bb-template/bb-template.runs/synth_1/ledmaster.vds
@@ -24,14 +24,14 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 102376
+INFO: [Synth 8-7075] Helper process launched with PID 115068
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:00 ; elapsed = 00:00:03 . Memory (MB): peak = 1314.711 ; gain = 440.012
+Starting RTL Elaboration : Time (s): cpu = 00:00:00 ; elapsed = 00:00:03 . Memory (MB): peak = 1315.625 ; gain = 442.059
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'ledmaster' [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/bb-template/bb-template.srcs/sources_1/new/ledmaster.v:38]
-INFO: [Synth 8-6157] synthesizing module 'rainbow' [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/bb-template/bb-template.srcs/sources_1/new/ledmaster.v:72]
-INFO: [Synth 8-6155] done synthesizing module 'rainbow' (0#1) [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/bb-template/bb-template.srcs/sources_1/new/ledmaster.v:72]
-WARNING: [Synth 8-689] width (32) of port connection 'ledNum' does not match port width (8) of module 'rainbow' [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/bb-template/bb-template.srcs/sources_1/new/ledmaster.v:50]
+INFO: [Synth 8-6157] synthesizing module 'rainbow' [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/bb-template/bb-template.srcs/sources_1/new/ledmaster.v:79]
+INFO: [Synth 8-6155] done synthesizing module 'rainbow' (0#1) [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/bb-template/bb-template.srcs/sources_1/new/ledmaster.v:79]
+WARNING: [Synth 8-689] width (32) of port connection 'ledNum' does not match port width (8) of module 'rainbow' [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/bb-template/bb-template.srcs/sources_1/new/ledmaster.v:56]
 INFO: [Synth 8-6157] synthesizing module 'clock' [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/bb-template/bb-template.srcs/sources_1/new/ledmaster.v:11]
 INFO: [Synth 8-6155] done synthesizing module 'clock' (0#1) [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/bb-template/bb-template.srcs/sources_1/new/ledmaster.v:11]
 INFO: [Synth 8-6155] done synthesizing module 'ledmaster' (0#1) [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/bb-template/bb-template.srcs/sources_1/new/ledmaster.v:38]
@@ -40,19 +40,39 @@ WARNING: [Synth 8-7129] Port PA[6] in module ledmaster is either unconnected or 
 WARNING: [Synth 8-7129] Port PA[5] in module ledmaster is either unconnected or has no load
 WARNING: [Synth 8-7129] Port PA[4] in module ledmaster is either unconnected or has no load
 WARNING: [Synth 8-7129] Port PA[2] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[15] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[14] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[13] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[12] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[11] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[10] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[9] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[8] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[7] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[6] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[5] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[4] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[3] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[2] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[1] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[0] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btn[3] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btn[2] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btn[1] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btn[0] in module ledmaster is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:00 ; elapsed = 00:00:04 . Memory (MB): peak = 1425.422 ; gain = 550.723
+Finished RTL Elaboration : Time (s): cpu = 00:00:00 ; elapsed = 00:00:04 . Memory (MB): peak = 1425.711 ; gain = 552.145
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:00 ; elapsed = 00:00:04 . Memory (MB): peak = 1425.422 ; gain = 550.723
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:00 ; elapsed = 00:00:04 . Memory (MB): peak = 1425.711 ; gain = 552.145
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:00 ; elapsed = 00:00:04 . Memory (MB): peak = 1425.422 ; gain = 550.723
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:00 ; elapsed = 00:00:04 . Memory (MB): peak = 1425.711 ; gain = 552.145
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 1425.422 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 1425.711 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -105,66 +125,6 @@ CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'sw[15]'. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:20]
 CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:20]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[0]'. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:23]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:23]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[1]'. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:24]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:24]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[2]'. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:25]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:25]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[3]'. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:26]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:26]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[4]'. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:27]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:27]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[5]'. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:28]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:28]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[6]'. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:29]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:29]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[7]'. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:30]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:30]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[8]'. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:31]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:31]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[9]'. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:32]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:32]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[10]'. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:33]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:33]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[11]'. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:34]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:34]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[12]'. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:35]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:35]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[13]'. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:36]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:36]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[14]'. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:37]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:37]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'led[15]'. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:38]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:38]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btn[0]'. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:41]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:41]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btn[1]'. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:42]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:42]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btn[2]'. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:43]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:43]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btn[3]'. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:44]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:44]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-507] No nets matched 'btn[0]'. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:46]
 CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/booleanboard.xdc:46]
@@ -279,39 +239,39 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/ledmaster_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1447.414 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1425.711 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1447.414 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1425.711 ; gain = 0.000
 INFO: [Designutils 20-5008] Incremental synthesis strategy quick
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:00 ; elapsed = 00:00:09 . Memory (MB): peak = 1447.414 ; gain = 572.715
+Finished Constraint Validation : Time (s): cpu = 00:00:01 ; elapsed = 00:00:08 . Memory (MB): peak = 1425.711 ; gain = 552.145
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:00 ; elapsed = 00:00:09 . Memory (MB): peak = 1447.414 ; gain = 572.715
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:01 ; elapsed = 00:00:08 . Memory (MB): peak = 1425.711 ; gain = 552.145
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:00 ; elapsed = 00:00:09 . Memory (MB): peak = 1447.414 ; gain = 572.715
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:01 ; elapsed = 00:00:08 . Memory (MB): peak = 1425.711 ; gain = 552.145
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:00 ; elapsed = 00:00:11 . Memory (MB): peak = 1447.414 ; gain = 572.715
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:01 ; elapsed = 00:00:10 . Memory (MB): peak = 1425.711 ; gain = 552.145
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input   32 Bit       Adders := 3     
+	   2 Input   32 Bit       Adders := 4     
 	   2 Input    7 Bit       Adders := 2     
 	   2 Input    5 Bit       Adders := 1     
 +---Registers : 
@@ -340,26 +300,46 @@ WARNING: [Synth 8-7129] Port PA[6] in module ledmaster is either unconnected or 
 WARNING: [Synth 8-7129] Port PA[5] in module ledmaster is either unconnected or has no load
 WARNING: [Synth 8-7129] Port PA[4] in module ledmaster is either unconnected or has no load
 WARNING: [Synth 8-7129] Port PA[2] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[15] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[14] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[13] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[12] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[11] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[10] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[9] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[8] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[7] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[6] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[5] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[4] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[3] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[2] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[1] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[0] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btn[3] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btn[2] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btn[1] in module ledmaster is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btn[0] in module ledmaster is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:01 ; elapsed = 00:00:26 . Memory (MB): peak = 1588.949 ; gain = 714.250
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:02 ; elapsed = 00:00:24 . Memory (MB): peak = 1582.555 ; gain = 708.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:02 ; elapsed = 00:00:29 . Memory (MB): peak = 1588.949 ; gain = 714.250
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:03 ; elapsed = 00:00:27 . Memory (MB): peak = 1582.555 ; gain = 708.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:02 ; elapsed = 00:00:29 . Memory (MB): peak = 1588.949 ; gain = 714.250
+Finished Timing Optimization : Time (s): cpu = 00:00:03 ; elapsed = 00:00:27 . Memory (MB): peak = 1582.555 ; gain = 708.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:02 ; elapsed = 00:00:29 . Memory (MB): peak = 1588.949 ; gain = 714.250
+Finished Technology Mapping : Time (s): cpu = 00:00:03 ; elapsed = 00:00:27 . Memory (MB): peak = 1582.555 ; gain = 708.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -377,37 +357,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:02 ; elapsed = 00:00:32 . Memory (MB): peak = 1588.949 ; gain = 714.250
+Finished IO Insertion : Time (s): cpu = 00:00:03 ; elapsed = 00:00:30 . Memory (MB): peak = 1582.555 ; gain = 708.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:02 ; elapsed = 00:00:32 . Memory (MB): peak = 1588.949 ; gain = 714.250
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:03 ; elapsed = 00:00:30 . Memory (MB): peak = 1582.555 ; gain = 708.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:02 ; elapsed = 00:00:32 . Memory (MB): peak = 1588.949 ; gain = 714.250
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:03 ; elapsed = 00:00:30 . Memory (MB): peak = 1582.555 ; gain = 708.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:02 ; elapsed = 00:00:32 . Memory (MB): peak = 1588.949 ; gain = 714.250
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:03 ; elapsed = 00:00:30 . Memory (MB): peak = 1582.555 ; gain = 708.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:32 . Memory (MB): peak = 1588.949 ; gain = 714.250
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:30 . Memory (MB): peak = 1582.555 ; gain = 708.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:02 ; elapsed = 00:00:32 . Memory (MB): peak = 1588.949 ; gain = 714.250
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:03 ; elapsed = 00:00:30 . Memory (MB): peak = 1582.555 ; gain = 708.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -424,43 +404,43 @@ Report Cell Usage:
 |      |Cell   |Count |
 +------+-------+------+
 |1     |BUFG   |     2|
-|2     |CARRY4 |    23|
-|3     |LUT1   |     7|
-|4     |LUT2   |    10|
-|5     |LUT3   |     2|
-|6     |LUT4   |     1|
-|7     |LUT5   |     9|
-|8     |LUT6   |   217|
+|2     |CARRY4 |    47|
+|3     |LUT1   |    28|
+|4     |LUT2   |    45|
+|5     |LUT3   |    26|
+|6     |LUT4   |    37|
+|7     |LUT5   |    31|
+|8     |LUT6   |   227|
 |9     |MUXF7  |    44|
 |10    |MUXF8  |    20|
-|11    |FDRE   |    55|
+|11    |FDRE   |    71|
 |12    |IBUF   |     1|
 |13    |OBUF   |     3|
 |14    |OBUFT  |     5|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:02 ; elapsed = 00:00:32 . Memory (MB): peak = 1588.949 ; gain = 714.250
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:03 ; elapsed = 00:00:30 . Memory (MB): peak = 1582.555 ; gain = 708.988
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 6 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:02 ; elapsed = 00:00:31 . Memory (MB): peak = 1588.949 ; gain = 692.258
-Synthesis Optimization Complete : Time (s): cpu = 00:00:02 ; elapsed = 00:00:32 . Memory (MB): peak = 1588.949 ; gain = 714.250
+Synthesis finished with 0 errors, 0 critical warnings and 26 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:03 ; elapsed = 00:00:29 . Memory (MB): peak = 1582.555 ; gain = 708.988
+Synthesis Optimization Complete : Time (s): cpu = 00:00:03 ; elapsed = 00:00:30 . Memory (MB): peak = 1582.555 ; gain = 708.988
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1588.949 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 87 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1582.555 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 111 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1588.949 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1582.555 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: 689e2f49
+Synth Design complete | Checksum: aeed404d
 INFO: [Common 17-83] Releasing license: Synthesis
-28 Infos, 84 Warnings, 72 Critical Warnings and 0 Errors encountered.
+28 Infos, 104 Warnings, 52 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:03 ; elapsed = 00:00:34 . Memory (MB): peak = 1588.949 ; gain = 1101.082
+synth_design: Time (s): cpu = 00:00:04 ; elapsed = 00:00:32 . Memory (MB): peak = 1582.555 ; gain = 1095.566
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1588.949 ; gain = 0.000
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1582.555 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Peter/Documents/GitHub/xilinx-fpga-projects/bb-template/bb-template.runs/synth_1/ledmaster.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file ledmaster_utilization_synth.rpt -pb ledmaster_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu May  2 23:46:11 2024...
+INFO: [Common 17-206] Exiting Vivado at Fri May  3 20:39:49 2024...

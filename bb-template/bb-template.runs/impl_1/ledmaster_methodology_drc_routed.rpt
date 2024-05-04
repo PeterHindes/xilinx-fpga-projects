@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date         : Thu May  2 23:46:47 2024
+| Date         : Fri May  3 20:40:23 2024
 | Host         : DESKTOP-0813D9N running 64-bit major release  (build 9200)
 | Command      : report_methodology -file ledmaster_methodology_drc_routed.rpt -pb ledmaster_methodology_drc_routed.pb -rpx ledmaster_methodology_drc_routed.rpx
 | Design       : ledmaster
@@ -23,11 +23,11 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 58
+             Violations found: 74
 +-----------+------------------+-----------------------------+------------+
 | Rule      | Severity         | Description                 | Violations |
 +-----------+------------------+-----------------------------+------------+
-| TIMING-17 | Critical Warning | Non-clocked sequential cell | 55         |
+| TIMING-17 | Critical Warning | Non-clocked sequential cell | 71         |
 | SYNTH-9   | Warning          | Small multiplier            | 3          |
 +-----------+------------------+-----------------------------+------------+
 
@@ -270,57 +270,137 @@ Related violations: <none>
 
 TIMING-17#48 Critical Warning
 Non-clocked sequential cell  
-The clock pin z/clock_out1_reg/C is not reached by a timing clock
+The clock pin slide_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#49 Critical Warning
 Non-clocked sequential cell  
-The clock pin z/counter_reg[0]/C is not reached by a timing clock
+The clock pin slide_reg[10]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#50 Critical Warning
 Non-clocked sequential cell  
-The clock pin z/counter_reg[1]/C is not reached by a timing clock
+The clock pin slide_reg[11]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#51 Critical Warning
 Non-clocked sequential cell  
-The clock pin z/counter_reg[2]/C is not reached by a timing clock
+The clock pin slide_reg[12]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#52 Critical Warning
 Non-clocked sequential cell  
-The clock pin z/counter_reg[3]/C is not reached by a timing clock
+The clock pin slide_reg[13]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#53 Critical Warning
 Non-clocked sequential cell  
-The clock pin z/counter_reg[4]/C is not reached by a timing clock
+The clock pin slide_reg[14]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#54 Critical Warning
 Non-clocked sequential cell  
-The clock pin z/counter_reg[5]/C is not reached by a timing clock
+The clock pin slide_reg[15]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#55 Critical Warning
+Non-clocked sequential cell  
+The clock pin slide_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#56 Critical Warning
+Non-clocked sequential cell  
+The clock pin slide_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#57 Critical Warning
+Non-clocked sequential cell  
+The clock pin slide_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#58 Critical Warning
+Non-clocked sequential cell  
+The clock pin slide_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#59 Critical Warning
+Non-clocked sequential cell  
+The clock pin slide_reg[5]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#60 Critical Warning
+Non-clocked sequential cell  
+The clock pin slide_reg[6]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#61 Critical Warning
+Non-clocked sequential cell  
+The clock pin slide_reg[7]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#62 Critical Warning
+Non-clocked sequential cell  
+The clock pin slide_reg[8]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#63 Critical Warning
+Non-clocked sequential cell  
+The clock pin slide_reg[9]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#64 Critical Warning
+Non-clocked sequential cell  
+The clock pin z/clock_out1_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#65 Critical Warning
+Non-clocked sequential cell  
+The clock pin z/counter_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#66 Critical Warning
+Non-clocked sequential cell  
+The clock pin z/counter_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#67 Critical Warning
+Non-clocked sequential cell  
+The clock pin z/counter_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#68 Critical Warning
+Non-clocked sequential cell  
+The clock pin z/counter_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#69 Critical Warning
+Non-clocked sequential cell  
+The clock pin z/counter_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#70 Critical Warning
+Non-clocked sequential cell  
+The clock pin z/counter_reg[5]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#71 Critical Warning
 Non-clocked sequential cell  
 The clock pin z/counter_reg[6]/C is not reached by a timing clock
 Related violations: <none>
 
 SYNTH-9#1 Warning
 Small multiplier  
-Detected multiplier at rbw/PA_OBUF[3]_inst_i_203 of size 8x5, it is implemented as LUTs due to its small size. To force the multiplier onto a DSP block, use the USE_DSP48 attribute.
+Detected multiplier at rbw/PA_OBUF[3]_inst_i_202 of size 8x5, it is implemented as LUTs due to its small size. To force the multiplier onto a DSP block, use the USE_DSP48 attribute.
 Related violations: <none>
 
 SYNTH-9#2 Warning
 Small multiplier  
-Detected multiplier at rbw/PA_OBUF[3]_inst_i_204 of size 8x5, it is implemented as LUTs due to its small size. To force the multiplier onto a DSP block, use the USE_DSP48 attribute.
+Detected multiplier at rbw/PA_OBUF[3]_inst_i_203 of size 8x5, it is implemented as LUTs due to its small size. To force the multiplier onto a DSP block, use the USE_DSP48 attribute.
 Related violations: <none>
 
 SYNTH-9#3 Warning
 Small multiplier  
-Detected multiplier at rbw/PA_OBUF[3]_inst_i_36 of size 8x5, it is implemented as LUTs due to its small size. To force the multiplier onto a DSP block, use the USE_DSP48 attribute.
+Detected multiplier at rbw/PA_OBUF[3]_inst_i_39 of size 8x5, it is implemented as LUTs due to its small size. To force the multiplier onto a DSP block, use the USE_DSP48 attribute.
 Related violations: <none>
 
 

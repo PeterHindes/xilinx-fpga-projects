@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date             : Thu May  2 23:46:47 2024
+| Date             : Fri May  3 20:40:23 2024
 | Host             : DESKTOP-0813D9N running 64-bit major release  (build 9200)
 | Command          : report_power -file ledmaster_power_routed.rpt -pb ledmaster_power_summary_routed.pb -rpx ledmaster_power_routed.rpx
 | Design           : ledmaster
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 4.807        |
+| Total On-Chip Power (W)  | 10.883       |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 4.719        |
-| Device Static (W)        | 0.088        |
+| Dynamic (W)              | 10.731       |
+| Device Static (W)        | 0.152        |
 | Effective TJA (C/W)      | 4.9          |
-| Max Ambient (C)          | 61.3         |
-| Junction Temperature (C) | 48.7         |
+| Max Ambient (C)          | 31.2         |
+| Junction Temperature (C) | 78.8         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,17 +52,17 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     0.194 |      398 |       --- |             --- |
-|   LUT as Logic |     0.128 |      242 |     32600 |            0.74 |
-|   CARRY4       |     0.039 |       23 |      8150 |            0.28 |
+| Slice Logic    |     5.419 |      586 |       --- |             --- |
+|   LUT as Logic |     5.073 |      364 |     32600 |            1.12 |
+|   F7/F8 Muxes  |     0.166 |       64 |     32600 |            0.20 |
+|   CARRY4       |     0.148 |       47 |      8150 |            0.58 |
+|   Register     |     0.017 |       71 |     65200 |            0.11 |
 |   BUFG         |     0.014 |        2 |        32 |            6.25 |
-|   Register     |     0.009 |       55 |     65200 |            0.08 |
-|   F7/F8 Muxes  |     0.003 |       64 |     32600 |            0.20 |
 |   Others       |     0.000 |        8 |       --- |             --- |
-| Signals        |     0.202 |      278 |       --- |             --- |
-| I/O            |     4.323 |        9 |       210 |            4.29 |
-| Static Power   |     0.088 |          |           |                 |
-| Total          |     4.807 |          |           |                 |
+| Signals        |     4.085 |      399 |       --- |             --- |
+| I/O            |     1.226 |        9 |       210 |            4.29 |
+| Static Power   |     0.152 |          |           |                 |
+| Total          |    10.883 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,16 +72,16 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.423 |       0.399 |      0.024 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.172 |       0.158 |      0.014 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     1.224 |       1.223 |      0.001 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     9.584 |       9.509 |      0.075 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.065 |       0.045 |      0.020 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.347 |       0.346 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.002 |       0.000 |      0.002 |       NA    | Unspecified | NA         |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |       NA    | Unspecified | NA         |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 
@@ -137,10 +137,10 @@ Table of Contents
 +-----------+-----------+
 | Name      | Power (W) |
 +-----------+-----------+
-| ledmaster |     4.719 |
-|   o       |     0.058 |
-|   rbw     |     0.106 |
-|   z       |     0.054 |
+| ledmaster |    10.731 |
+|   o       |     0.057 |
+|   rbw     |     9.039 |
+|   z       |     0.051 |
 +-----------+-----------+
 
 
